@@ -6,7 +6,7 @@
 
 <div class="x_panel">
       <div class="x_title">
-      <h1 class="h2">Add Staff</h1>
+      <h1 class="h2">Add Cow Type</h1>
                     
                              <ul class="nav navbar-right panel_toolbox">
                                   <li>
@@ -35,39 +35,34 @@
         
                  
                               <div class="container p-5">
-    <form class="row g-3 d-flex justify-content-center p-5 bg-light shadow border" action="{{route('addstaffstore')}}" method="post">
+    <form class="row g-3 d-flex justify-content-center p-5 bg-light shadow border" action="{{route('typeliststore')}}" method="post">
 
   @csrf
-        <div class="col-md-6">
-            <label for="inputEmail4" class="form-label">Name </label>
-            <input type="text" class="form-control" name="staff_name" placeholder="Name">
-          </div>
+
           <div class="col-md-6">
-            <label for="inputEmail4" class="form-label">Image</label>
-            <input type="file" class="form-control" name="image" placeholder="Image">
+            <label for="inputEmail4" class="form-label">Cow Type</label>
+            <input type="text" class="form-control" name="cow_type" placeholder="Cow Type">
           </div>
-          <div class="col-md-6">
-          <label for="inputEmail4" class="form-label">Email</label>
-          <input type="email" class="form-control" id="inputEmail4" name="email" placeholder="Email">
-        </div>
-       
-        <div class="col-md-6">
-            <label for="inputEmail4" class="form-label">Mobile</label>
-            <input type="tel" class="form-control" name="Mobile"placeholder="Mobile" id="inputEmail4">
-          </div>
-          <div class="col-md-6">
-            <label for="inputEmail4" class="form-label">Designation</label>
-            <input type="text" class="form-control" name="Designation" placeholder="Designation">
-          </div>
-        <div class="col-md-6">
-          <label for="inputEmail4" class="form-label">Salary</label>
-          <input type="text" class="form-control" id="inputEmail4" name="Salary" placeholder="Salary">
-        </div>
-        <div class="col-6">
-          <label for="inputAddress" class="form-label">Address</label>
-          <textarea class="form-control" type="text" class="form-control" id="inputAddress" name="Address" placeholder="Address"></textarea>
-        </div>
         
+            
+         
+        
+       
+  
+          
+          <div class="col-md-6">
+            <label for="inputEmail4" class="form-label">Color</label>
+            <input type="text" class="form-control" name="color" placeholder="Color">
+          </div>
+        
+
+          <div class="col-md-6">
+              <label class="form-label">Select Status</label> 
+                 <select class="form-control" name="status" >
+                   <option value="sold">sold</option>
+                    <option value="available">Availabe</option>
+                 </select>
+             </div>
 </div>
 
         <div class="col-12">

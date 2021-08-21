@@ -11,6 +11,9 @@ class paymentcontroller extends Controller
     {
         //$databasename=modelname::all();
            $payments = payment::all();
+
+             //$db name= modelname::paginate(number);
+             $payments =payment::paginate(6);
         return view('backend.layouts.payment',compact('payments'));
     }
     

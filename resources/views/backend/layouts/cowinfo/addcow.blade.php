@@ -44,10 +44,17 @@
             <label for="inputEmail4" class="form-label">Cow Number </label>
             <input type="text" class="form-control" name="cow_number" placeholder="Cow Number">
           </div>
-          <div class="col-md-6">
-            <label for="inputEmail4" class="form-label">Cow Type</label>
-            <input type="text" class="form-control" name="cow_type" placeholder="Cow Type">
-          </div>
+           
+        <div class="col-md-6">
+           
+           <label class="form-label">Cow Type</label> 
+           <select class="form-control" name="cow_type"placeholder="Cow Type" >
+
+           @foreach($addcows as $add)
+                 <option value="{{$add->id}}"> {{$add->cow_type}}</option>
+             @endforeach
+               </select>
+             </div>
         
           <div class="col-md-6">
            

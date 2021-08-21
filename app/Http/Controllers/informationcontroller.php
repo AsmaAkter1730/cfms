@@ -4,21 +4,26 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Addcow;
+use App\Models\Cowtype;
 use App\Models\Staff;
 class informationcontroller extends Controller
 {
     public function cow()
     {
-          $addcows = Addcow::all();
         //get all data from cow table
-       
+        //  $addcows = Addcow::all();
+        
+       //$variable name= modelname::paginate(number);
+    $addcows = Addcow::paginate(6);
+
         return view('backend.layouts.cowinfo.cow',compact('addcows'));
     }
 
    public function addcow()
    {
+    $addcows = Cowtype::all();
 
-       return view('backend.layouts.cowinfo.addcow');
+       return view('backend.layouts.cowinfo.addcow',compact('addcows'));
    }
   //post
    public function addcowstore(Request $store)
@@ -40,8 +45,11 @@ class informationcontroller extends Controller
 
    public function staff()
    {
-
+     //db name=modelname::all();
     $staffs = Staff::all();
+    //$variable name= modelname::paginate(number);
+    $staffs = staff::paginate(6);
+
        return view('backend.layouts.staffinfo.staff',compact('staffs'));
    }
   

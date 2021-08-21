@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateMilkSalesTable extends Migration
+class CreateMilkstocksTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,12 +13,10 @@ class CreateMilkSalesTable extends Migration
      */
     public function up()
     {
-        Schema::create('milk_sales', function (Blueprint $table) {
+        Schema::create('milkstocks', function (Blueprint $table) {
             $table->id();
-            $table->string('cutomer_name');
-            $table->string('date');
-            $table->string('liter');
-            $table->string('price_perliter');
+            $table->integer('stock_in');
+            $table->integer('stock_out');
             $table->timestamps();
         });
     }
@@ -30,6 +28,6 @@ class CreateMilkSalesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('milk_sales');
+        Schema::dropIfExists('milkstocks');
     }
 }

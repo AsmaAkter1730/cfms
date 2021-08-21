@@ -40,10 +40,9 @@
     <form class="row g-3 d-flex justify-content-center p-5 bg-light shadow border" action="{{route('addmilksalestore')}}" method="post">
    
     @csrf
-    <div class="col-md-6">
-            <label for="inputEmail4" class="form-label">Collection ID No. </label>
-            <input type="text" class="form-control" name="collection_ID_No" placeholder="Collection ID No.">
-          </div>
+    
+
+          
         <div class="col-md-6">
             <label for="inputEmail4" class="form-label">Customer Name</label>
             <input type="text" class="form-control" name="cutomer_name" placeholder="Customer Name">

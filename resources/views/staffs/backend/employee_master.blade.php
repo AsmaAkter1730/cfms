@@ -8,6 +8,7 @@
           <meta name="viewport" content="width=device-width, initial-scale=1">
                    <link rel="icon" href="images/favicon.ico" type="image/ico" />
                     <title>Cattle farm Management System  </title>
+
           <link href="https://colorlib.com/polygon/vendors/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
 
            <link href="https://colorlib.com/polygon/vendors/font-awesome/css/font-awesome.min.css" rel="stylesheet">
@@ -37,7 +38,7 @@
 
                                       <br />
 
-                  @include('backend.fixedspart.sidebar')
+                  @include('staffs.backend.partials.sidebar')
 
 
                   <div class="top_nav">
@@ -46,7 +47,7 @@
                            <a id="menu_toggle"><i class="fa fa-bars"></i></a>
                        </div>
 
-                      @include('backend.fixedspart.header')
+                      @include('staffs.backend.partials.header')
 
                     
                   </div>

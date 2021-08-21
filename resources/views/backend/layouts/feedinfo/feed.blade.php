@@ -40,12 +40,11 @@
     <tr>
      
       <th style="width:10%;"scope="col">Cow Number</th>
+      <th style="width:10%;"scope="col">Feed Item</th>
+      <th style="width:10%;"scope="col">Feed time</th>
+      <th style="width:10%;"scope="col">Quality</th>
       <th style="width:10%;"scope="col">Date</th>
       <th style="width:10%;"scope="col">Remarks</th>
-      <th style="width:10%;"scope="col">Feed Item</th>
-      <th style="width:10%;"scope="col">Quality</th>
-      
-      <th style="width:10%;"scope="col">Feed time</th>
       <th style="width:15%;"scope="col">Action</th>
     </tr>
   </thead>
@@ -55,12 +54,14 @@
   <tbody>
     <tr>
       <th scope="row">{{ $data->cow_number}}</th>
-      <td>{{ $data->Remarks}}</td>
-      <td>{{ $data->date}}</td>
+
+    
       <td>{{ $data->Feed_item}}</td>
-      <td>{{ $data->Quality}}</td>
+      
       <td>{{ $data->Feed_time}}</td>
-     
+      <td>{{ $data->Quality}}</td>
+      <td>{{ $data->date}}</td>
+      <td>{{ $data->Remarks}}</td>
       <td class="table-action">
                             <a href="#"><button type="button" class="btn btn-success">Edit</button></a>
                             <a href="#"><button type="button" class="btn btn-danger">Delete</button></a>
@@ -70,6 +71,9 @@
   </tbody>
   @endforeach
 </table>
+
+{{ $feed_monitoring->links('pagination::bootstrap-4') }}
+
                                </ul> 
                             </div>
                   </div>

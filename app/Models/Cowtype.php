@@ -5,10 +5,11 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Staff extends Model
+class Cowtype extends Model
 {
     use HasFactory;
-    protected $table='staffs';
-    // protected $fillable=['staff_name','image','email','Mobile','Designation','Salary','Address'];
+
+  //  protected $fillable=['cow_type','color','status'];
     protected $guarded=[];
+    
 }

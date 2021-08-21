@@ -15,7 +15,7 @@ class CreateVaccineMonitoringsTable extends Migration
     {
         Schema::create('vaccine_monitorings', function (Blueprint $table) {
             $table->id();
-            $table->string('cow_number');
+            $table->integer('cow_number');
             $table->string('vaccine_date');
             $table->string('Remarks');
             $table->timestamps();

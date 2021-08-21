@@ -15,7 +15,7 @@ class CreateFeedMonitoringsTable extends Migration
     {
         Schema::create('feed_monitorings', function (Blueprint $table) {
             $table->id();
-            $table->string('cow_number',20);
+            $table->integer('cow_number');
             $table->string('date');
             $table->string('Remarks');
             $table->string('Feed_item');

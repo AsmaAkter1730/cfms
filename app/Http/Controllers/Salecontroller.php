@@ -3,7 +3,8 @@
 namespace App\Http\Controllers;
 use App\Models\Milk_sale;
 use App\Models\Cow_sale;
-
+use App\Models\Addcow;
+use App\Models\Milk_collection;
 use Illuminate\Http\Request;
 
 class Salecontroller extends Controller
@@ -11,13 +12,22 @@ class Salecontroller extends Controller
     public function cowsale()
     {
   //$databasename=modelname::all();
-  $cow_sales = Cow_sale::all();
+//   $cow_sales = Cow_sale::all();
+
+   //$db name= modelname::paginate(number);
+   $cow_sales = Cow_sale::paginate(6);
+
 
         return view('backend.layouts.cowsale.cowsale',compact('cow_sales'));
     }
     public function addcowsale()
     {
-        return view('backend.layouts.cowsale.addcowsale');
+
+        $cow_sales = Addcow::all();
+        
+        
+        return view('backend.layouts.cowsale.addcowsale',compact('cow_sales'));
+
     }
     public function addcowsalestore(Request $store)
     {
@@ -45,11 +55,19 @@ class Salecontroller extends Controller
 
           //$databasename=modelname::all();
           $milk_sales = Milk_sale::all();
+
+           //$db name= modelname::paginate(number);
+         $milk_sales = Milk_sale::paginate(6);
+
+
         return view('backend.layouts.milksale.milksale',compact('milk_sales'));
     }
     public function addmilksale()
     {
-        return view('backend.layouts.milksale.addmilksale');
+
+        $milk_sales = Milk_collection::all();
+
+        return view('backend.layouts.milksale.addmilksale',compact('milk_sales'));
     }
 
     public function addmilksalestore(Request $store)
@@ -58,7 +76,7 @@ class Salecontroller extends Controller
 
 
         Milk_sale::create([
-         'collection_ID_No'=>$store->collection_ID_No,
+        
          'cutomer_name'=>$store->cutomer_name,
          'date'=>$store->date,
          'liter'=>$store->liter,

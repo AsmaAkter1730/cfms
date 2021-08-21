@@ -39,10 +39,18 @@
                               <div class="container p-5">
     <form class="row g-3 d-flex justify-content-center p-5 bg-light shadow border" action="{{route('addvaccinestore')}}" method="post">
    @csrf
-        <div class="col-md-6">
-            <label for="inputEmail4" class="form-label">Cow Number </label>
-            <input type="text" class="form-control" name="cow_number" placeholder="Cow Number">
+        
+
+          <div class="col-md-6">
+             <label for="exampleFormControlSelect1">Cow Number</label>
+             <select class="form-control" id="exampleFormControlSelect1"name="cow_number">
+      
+                 @foreach($Vaccine_monitoring as $add)
+                 <option value="{{$add->id}}"> {{$add->cow_number}}</option>
+                 @endforeach
+            </select>
           </div>
+          
           <div class="col-md-6">
             <label for="inputEmail4" class="form-label">Date</label>
             <input type="date" class="form-control" id="inputEmail4" name="vaccine_date">

@@ -15,8 +15,9 @@ class CreateMilkCollectionsTable extends Migration
     {
         Schema::create('milk_collections', function (Blueprint $table) {
             $table->id();
+            // $table->integer('Addcow_id');
             $table->string('collection_ID_No');
-            $table->string('cow_number');
+            $table->integer('cow_number');
             $table->string('date');
             $table->string('liter');
             $table->string('price_perliter');

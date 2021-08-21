@@ -39,12 +39,25 @@ Login From
 <input class="input100" type="text" name="username" placeholder="Username">
 <span class="focus-input100"></span>
 </div>
+
 <div class="wrap-input100 validate-input" data-validate="Please enter password">
 <input class="input100" type="password" name="password" placeholder="Password">
 <span class="focus-input100"></span>
 </div>
+
 <div class="text-right p-t-13 p-b-23">
 <span class="txt1">
+
+<div>
+     <label for="inputEmail4" class="form-label">Select type</label>
+         <select class="form-control" name="Select type" placeholder="Select type" >
+                 <option value="Admin">Admin</option>
+                 <option value="Staff">Staff</option>
+		</select>
+             <span class="focus-input100"></span>
+</div>
+
+
 Forgot
 </span>
 <a href="#" class="txt2">

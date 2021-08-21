@@ -42,10 +42,24 @@
             <label for="inputEmail4" class="form-label">Invoice No </label>
             <input type="text" class="form-control" name="Invoice_no" placeholder="Invoice No.">
           </div>
-          <div class="col-md-6">
+          <!-- <div class="col-md-6">
             <label for="inputEmail4" class="form-label">Cow Number</label>
             <input type="text" class="form-control" name="cow_number" placeholder="Cow Number">
-          </div>
+            @foreach($cow_sales as $add)
+            <option value="{{$add->id}}"> {{$add->cow_number}}</option>
+             @endforeach
+          </div> -->
+
+          <div class="col-md-6">
+    <label for="exampleFormControlSelect1">Cow Number</label>
+    <select class="form-control" id="exampleFormControlSelect1"name="cow_number">
+      
+      @foreach($cow_sales as $add)
+      <option value="{{$add->id}}"> {{$add->cow_number}}</option>
+      @endforeach
+    </select>
+  </div>
+
           <div class="col-md-6">
             <label for="inputEmail4" class="form-label"> Customer Name</label>
             <input type="text" class="form-control" name="cus_name"placeholder="Customer Name" id="inputEmail4">

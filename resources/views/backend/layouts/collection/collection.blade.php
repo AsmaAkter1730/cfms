@@ -32,8 +32,9 @@
                               <table class="table">
   <thead class="thead-light">
     <tr>
-      <th style="width:10%;"scope="col">Collection ID No.</th>
+      <th style="width:10%;"scope="col">Milk_Collection No.</th>
       <th style="width:10%;"scope="col">Cow Number</th>
+      <th style="width:10%;"scope="col">Available Stock</th>
       <th style="width:10%;"scope="col">Date</th>
       <th style="width:10%;"scope="col">Liter</th>
       <th style="width:10%;"scope="col">Price per Liter</th>
@@ -47,6 +48,7 @@
     <tr>
       <th scope="row">{{ $data->collection_ID_No}}</th>
       <td>{{ $data->cow_number}}</td>
+      <td>{{ $data->avialable_stock}}</td>
       <td>{{ $data->date}}</td>
       <td>{{ $data->liter}}</td>
       <td> {{ $data->price_perliter}}</td>
@@ -62,7 +64,7 @@
   </tbody>
   @endforeach
 </table>
-                       
+{{ $milk_collection->links('pagination::bootstrap-4') }}                   
                        
                             </ul> 
                             </div>

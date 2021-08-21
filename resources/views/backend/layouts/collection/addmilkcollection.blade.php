@@ -42,12 +42,23 @@
     @csrf
     <div class="col-md-6">
             <label for="inputEmail4" class="form-label">Collection ID No. </label>
-            <input type="text" class="form-control" name="collection_ID_No" placeholder="Collection ID No.">
+            <input type="number" class="form-control" name="collection_ID_No" placeholder="Collection ID No.">
           </div>
-        <div class="col-md-6">
+        <!-- <div class="col-md-6">
             <label for="inputEmail4" class="form-label">Cow Number </label>
             <input type="text" class="form-control" name="cow_number" placeholder="Cow Number">
-          </div>
+            
+          </div> -->
+
+          <div class="col-md-6">
+    <label for="exampleFormControlSelect1">Cow Number</label>
+    <select class="form-control" id="exampleFormControlSelect1"name="cow_number">
+      
+      @foreach($addmilk as $add)
+      <option value="{{$add->id}}"> {{$add->cow_number}}</option>
+      @endforeach
+    </select>
+  </div>
           <div class="col-md-6">
             <label for="inputEmail4" class="form-label">Date</label>
             <input type="date" class="form-control" id="inputEmail4" name="date">

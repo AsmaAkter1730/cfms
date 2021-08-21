@@ -16,7 +16,7 @@
                                    <li class="dropdown">
                                   
                                    <li><a href="{{route('addcow')}}" data-hover="add">  
-	                                 <button type="button" class="btn btn-outline-success">Add list</button></a></li> 
+	                                 <button type="button" class="btn btn-outline-success">Add Cow</button></a></li> 
                                      
                                      <div class="dropdown-menu" aria-labelledby="dropdownMenuButton"> </div>
 
@@ -38,9 +38,10 @@
                               <table class="table">
   <thead class="thead-light">
     <tr>
-     
+
+      <th style="width:10%;"scope="col">Cow Number</th>
       <th style="width:10%;"scope="col">image</th>
-      <th style="width:10%;"scope="col">Number</th>
+      
       <th style="width:10%;"scope="col">Gender</th>
       <th style="width:10%;"scope="col">Date of Birth</th>
       <th style="width:10%;"scope="col">Cow type</th> 
@@ -52,11 +53,12 @@
   <tbody>
 
     <tr>
-      <th scope="row">{{ $data->image }}</th>
+      
       <td>{{ $data->cow_number }}</td>
-      <td>{{ $data->cow_type}}</td>
+      <th scope="row">{{ $data->image }}</th>
       <td>{{ $data->Gender}}</td>
       <td>{{ $data->date_of_birth}}</td>
+      <td>{{ $data->cow_type}}</td>
       <td>{{ $data->status }}</td>
       
       <td class="table-action">
@@ -68,6 +70,7 @@
   </tbody>
   @endforeach
 </table>
+{{ $addcows->links('pagination::bootstrap-4') }}
                                </ul> 
                             </div>
                   </div>

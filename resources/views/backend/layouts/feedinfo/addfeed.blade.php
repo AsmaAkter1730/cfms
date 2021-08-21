@@ -36,56 +36,68 @@
                               <ul class="to_do">
         
                  
-                              <div class="container p-5">
-    <form class="row g-3 d-flex justify-content-center p-5 bg-light shadow border" action="{{route('addfeedstore')}}" method="post">
+                   <div class="container p-5">
+          <form class="row g-3 d-flex justify-content-center p-5 bg-light shadow border" action="{{route('addfeedstore')}}" method="post">
       
-   @csrf
-        <div class="col-md-6">
-            <label for="inputEmail4" class="form-label">Cow Number </label>
-            <input type="text" class="form-control" name="cow_number" placeholder="Cow Number">
-          </div>
+                @csrf
+                   
+                     <div class="col-md-6">
+                           <label for="exampleFormControlSelect1">Cow Number</label>
+                             <select class="form-control" id="exampleFormControlSelect1"name="cow_number">
+      
+                              @foreach($feed_monitoring as $add)
+                                 <option value="{{$add->id}}"> {{$add->cow_number}}</option>
+                              @endforeach
+                           </select>
+                      </div>
           
-          
-        <div class="col-md-6">
-            <label for="inputEmail4" class="form-label">Remarks</label>
-            <input type="text" class="form-control" name="Remarks" placeholder="Remarks">
-          </div>
+                     <div class="col-md-6">
+                        <label for="inputEmail4" class="form-label">Remarks</label>
+                       <input type="text" class="form-control" name="Remarks" placeholder="Remarks">
+                     </div>
         
-          <div class="col-md-6">
-            <label for="inputEmail4" class="form-label">Date</label>
-            <input type="date" class="form-control" id="inputEmail4" name="date">
-          </div>
+                      <div class="col-md-6">
+                          <label for="inputEmail4" class="form-label">Date</label>
+                          <input type="date" class="form-control" id="inputEmail4" name="date">
+                      </div>
           
           
-        <div class="col-md-6">
-            <label for="inputEmail4" class="form-label">Feed item</label>
-            <input type="text" class="form-control" name="Feed_item" placeholder="Feed item">
-          </div>
-          <div class="col-md-6">
-            <label for="inputEmail4" class="form-label">Quality</label>
-            <input type="text" class="form-control" name="Quality" placeholder="Quality">
-          </div>
+                      <div class="col-md-6">
+                          <label for="inputEmail4" class="form-label">Feed item</label>
+                              <select class="form-control" name="Feed_item" placeholder="Feed item" >
+                                  <option value="Grass">Grass</option>
+                                   <option value="Bamboo grass">Bamboo grass</option>
+                               </select>
+                      </div>
+                     
+           
+           
+             
+
+                       <div class="col-md-6">
+                            <label for="inputEmail4" class="form-label">Quality</label>
+                            <input type="text" class="form-control" name="Quality" placeholder="Quality">
+                       </div>
           
           
-        <div class="col-md-6">
-            <label for="inputEmail4" class="form-label">Feed Time</label>
-            <input type="text" class="form-control" name="Feed_time" placeholder="Feed time">
-          </div>
-        
-        
-       
-</div>
+                      <div class="col-md-6">
+                            <label for="appt" class="form-label">Feed Time</label>
+                            <input type="time" class="form-control" name="Feed_time" placeholder="Feed time">
+                       </div>
+                    </div>
 
-        <div class="col-12">
-          <button type="submit" class="btn btn-primary">Submit</button>
-          <button  class="btn btn-primary">Cancel</button>
-        </div>
-      </form>
+                        <div class="col-12">
+                            <button type="submit" class="btn btn-primary">Submit</button>
+                             <button  class="btn btn-primary">Cancel</button>
+                         </div>
+         </form>
 
-</div>
+                         </div>
 
 
-                               </ul> 
+                         </ul>    
+                        
+                         
                             </div>
                   </div>
          </div>

@@ -53,6 +53,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 							
 							
 							<li><a href="{{route('logins')}}" data-hover="Login">Login</a></li>
+							<li><a href="#Services" data-hover="Services">Services</a></li>
+							<li><a href="#gallery" data-hover="Gallery">Gallery</a></li>
 							
 						</ul>
 					</nav>
@@ -88,7 +90,9 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 	</div>
 <!-- //banner-bottom -->
 <!-- services -->
-	<div class="services">
+	<div class="services" id='Services'>
+	<h3 class="head">Our Services </h3>
+	<br>
 		<div class="container">
 			<div class="col-md-4 agileits_service_grid">
 				<div class="agileits_service_grid1">
@@ -116,7 +120,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 	</div>
 <!-- //services -->
 <!-- gallery -->
-	<div class="gallery">
+	<div class="gallery" id='gallery'>
 		<h3 class="head"><span class="glyphicon glyphicon-picture" aria-hidden="true"></span>Our Cattle Farm Gallery</h3>
 		<div class="w3_gallery_grids">
 			<div id="jzBox" class="jzBox">

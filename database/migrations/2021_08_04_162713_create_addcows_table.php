@@ -15,7 +15,7 @@ class CreateAddcowsTable extends Migration
     {
         Schema::create('addcows', function (Blueprint $table) {
             $table->id();
-            $table->string('cow_number',20);
+            $table->integer('cow_number');
             $table->string('cow_type',20);
             $table->string('Gender');
             $table->string('date_of_birth');

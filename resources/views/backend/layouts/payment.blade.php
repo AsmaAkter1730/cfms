@@ -40,7 +40,7 @@
   <thead class="thead-light">
     <tr>
    
-                <th scope="col"style="width:15%;" scope="col">Cow Number</th>
+                <th scope="col"style="width:15%;" scope="col">cow_number</th>
                 <th style="width:15%;"scope="col">Total Amount</th>
                 <th style="width:15%;"scope="col">Paid Amount</th>
                 <th style="width:15%;"scope="col">Due Amount</th>
@@ -66,6 +66,8 @@
   </tbody>
   @endforeach
 </table>
+
+{{ $payments->links('pagination::bootstrap-4') }} 
                                </ul> 
                             </div>
                   </div>

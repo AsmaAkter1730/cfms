@@ -10,14 +10,14 @@
                                   </li>
                                    <li class="dropdown">
                                    <li><a href="{{route('addstaff')}}" data-hover="add">  
-	                                 <button type="button" class="btn btn-outline-success">Add list</button></a></li> 
+	                                 <button type="button" class="btn btn-outline-success">Add Staff</button></a></li> 
                                      
                                      <div class="dropdown-menu" aria-labelledby="dropdownMenuButton"> </div>
 
                                     </li>
 
                                     <li>
-                                        <a class="close-link"><i class="fa fa-close"></i></a>
+                                    <a class="close-link"><i class="fa fa-close"></i></a>
                                     </li>
                              </ul>
                              <input class="form-control form-control-dark w-100" type="text" placeholder="Search" aria-label="Search">
@@ -48,13 +48,13 @@
       <th scope="row">{{ $data->staff_name}}</th>
       <td>{{ $data->image }}</td>
       <td>{{ $data->email}}</td>
+      <td>{{ $data->Address }}</td>
       <td>{{ $data->Mobile}}</td>
       <td>{{ $data->Designation }}</td>
       <td>{{ $data->Salary }}</td>
-      <td>{{ $data->Address }}</td>
       
       <td class="table-action">
-                            <a href="#"><button type="button" class="btn btn-success">Edit</button></a>
+                            <a href="#"><button  type="button" class="btn btn-success">Edit</button></a>
                             <a href="#"><button type="button" class="btn btn-danger">Delete</button></a>
                         </td>
       
@@ -63,10 +63,14 @@
   </tbody>
   @endforeach
 </table>
+
+{{ $staffs->links('pagination::bootstrap-4') }}
                        
                        
                             </ul> 
                             </div>
+                            
+                  
                   </div>
          </div>
 </div>
