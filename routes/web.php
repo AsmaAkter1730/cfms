@@ -46,6 +46,8 @@ Route::post('/addcow',[informationcontroller::class,'addcowstore'])->name('addco
 Route::get('/addcowType',[Cowtypecontroller::class,'addcow_type'])->name('addcowtype');
 Route::get('/addcowTypelist',[Cowtypecontroller::class,'typelist'])->name('addcowtypelist');
 Route::post('/cowtypestore',[Cowtypecontroller::class,'cowtypelist'])->name('typeliststore');
+Route::get('/cow/{id}/category',[Cowtypecontroller::class,'allcow'])->name('cowcategory');
+
 
 //staff
 Route::get('/staff',[informationcontroller::class,'staff'])->name('staffs');

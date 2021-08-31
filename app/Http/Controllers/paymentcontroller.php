@@ -26,7 +26,7 @@ class paymentcontroller extends Controller
     {
         //dd($store->all());
         Payment::create([
-       'cow_number'=>$store->cow_number,
+     
        'Total_amount'=>$store->Total_amount,
        'Paid_amount'=>$store->Paid_amount,
        'due_amount'=>$store->due_amount,

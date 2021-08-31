@@ -32,7 +32,7 @@
                               <table class="table">
   <thead class="thead-light">
     <tr>
-      <th style="width:10%;"scope="col">Milk_Collection No.</th>
+      <th style="width:10%;"scope="col">Milk_Sale ID</th>
       <th style="width:10%;"scope="col">Customer Name</th>
       <th style="width:10%;"scope="col">Liter</th>
       <th style="width:10%;"scope="col">Price per Liter</th>
@@ -42,7 +42,15 @@
       <th style="width:20%;"scope="col">Action</th>
     </tr>
   </thead>
+
+    
+
   @foreach($milk_sales as  $data)
+
+  @php 
+        $Total=$data->liter*$data->price_perliter;
+       
+    @endphp
   <tbody>
     <tr>
       <th scope="row">{{ $data->id}}</th>
@@ -50,11 +58,12 @@
       <td> {{ $data->liter}}</td>
       <td>{{ $data->price_perliter}}</td>
       <td>{{ $data->date}}</td>
-      <td>{{ $data->Total}}</td>
+      <td>{{$Total }}</td>
       
       <td class="table-action">
-                            <a href="#"><button type="button" class="btn btn-success">Edit</button></a>
-                            <a href="#"><button type="button" class="btn btn-danger">Delete</button></a>
+                             <a href="#"><button class="btn"><i class="glyphicon glyphicon-pencil"style="font-size:15px"></i></button></a>
+                             <a href="#"><button class="btn"><i class="fa fa-trash"style="font-size:20px"></i></button></a>
+                                <a href="#"><button class="btn"><i class="fa fa-print"style="font-size:24px"></i></button></a>
                         </td>
       
     </tr>

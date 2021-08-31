@@ -41,18 +41,12 @@
 
           <div class="col-md-6">
             <label for="inputEmail4" class="form-label">Cow Type</label>
-            <input type="text" class="form-control" name="cow_type" placeholder="Cow Type">
+            <input type="text" class="form-control" name="cow_type" id="cow_type" placeholder="Cow Type">
           </div>
-        
-            
-         
-        
-       
-  
           
           <div class="col-md-6">
             <label for="inputEmail4" class="form-label">Color</label>
-            <input type="text" class="form-control" name="color" placeholder="Color">
+            <input type="text" class="form-control" name="color" id="color" placeholder="Color">
           </div>
         
 

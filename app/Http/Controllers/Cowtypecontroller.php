@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Cowtype;
+use App\Models\Addcow;
+use CreateAddcowsTable;
 
 class Cowtypecontroller extends Controller
 {
@@ -25,6 +27,7 @@ public function cowtypelist(Request $store)
   //modelname::create([]);
     Cowtype::create([
          //formname=>$variablename->(bladefile)name
+
          'cow_type'=>$store->cow_type,   
          'status'=>$store->status,
          'color'=>$store->color
@@ -33,6 +36,16 @@ public function cowtypelist(Request $store)
 
 
     return redirect()->route('addcowtype');
+}
+
+//view the cow under the cowtype
+public function allcow($id)
+{
+    // dd($id);
+    $categories=Addcow::where('cowtype_id',$id)->get();
+    //        $category=Category::with('products')->find($id);//using relationshop
+   // dd($categories);
+ return view ('backend.layouts.cowtype.viewcow-type',compact('categories'));
 }
 
 }

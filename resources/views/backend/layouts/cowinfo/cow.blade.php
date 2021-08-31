@@ -38,37 +38,38 @@
                               <table class="table">
   <thead class="thead-light">
     <tr>
-
+    <th style="width:10%;"scope="col">ID</th>
       <th style="width:10%;"scope="col">Cow Number</th>
       <th style="width:10%;"scope="col">image</th>
       
       <th style="width:10%;"scope="col">Gender</th>
       <th style="width:10%;"scope="col">Date of Birth</th>
-      <th style="width:10%;"scope="col">Cow type</th> 
+      <th style="width:10%;"scope="col">cowtype</th> 
       <th style="width:10%;"scope="col">Status</th>
       <th style="width:15%;"scope="col">Action</th>
     </tr>
   </thead>
-  @foreach($addcows as  $data)
+ 
   <tbody>
-
+  @foreach($addcows as  $data)
     <tr>
-      
+
+      <th scope="row">{{ $data->id }}</th>
       <td>{{ $data->cow_number }}</td>
-      <th scope="row">{{ $data->image }}</th>
+      <td>{{ $data->image }}</td>
       <td>{{ $data->Gender}}</td>
       <td>{{ $data->date_of_birth}}</td>
-      <td>{{ $data->cow_type}}</td>
+      <td>{{ $data->Cowtype->cow_type}}</td>
       <td>{{ $data->status }}</td>
       
       <td class="table-action">
-                            <a href="#"><button type="button" class="btn btn-success">Edit</button></a>
-                            <a href="#"><button type="button" class="btn btn-danger">Delete</button></a>
+                            <a href="#"><button class="btn"><i class="glyphicon glyphicon-pencil"style="font-size:15px"></i></button></a>
+                             <a href="#"><button class="btn"><i class="fa fa-trash"style="font-size:20px"></i></button></a>
                         </td>
     </tr>
-    
+    @endforeach
   </tbody>
-  @endforeach
+
 </table>
 {{ $addcows->links('pagination::bootstrap-4') }}
                                </ul> 

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 use App\Models\Milk_collection;
 use App\Models\Addcow;
+use App\Models\Milkstock;
 use Illuminate\Http\Request;
 
 class collectioncontroller extends Controller
@@ -37,8 +38,18 @@ class collectioncontroller extends Controller
 
             'date'=>$store->date,
             'liter'=>$store->liter,
-            'price_perliter'=>$store->price_perliter
+            
         ]);
+
+
+        // update stock
+
+        Milkstock::create([
+            'stock_in'=>$store->liter,
+            'stock_out'=>0
+        ]);
+ 
+       
         return redirect()->route('collections');
     }
 }

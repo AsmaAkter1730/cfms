@@ -14,12 +14,12 @@
                 <ul class="nav child_menu">
                    <li><a href="{{route('staffs')}}">Staff</a></li>
                    <li><a href="{{route('cows')}}">Cow</a></li>
-                   <li><a href="{{route('addcowtype')}}">Cow Type</a></li>
+                   <li><a href="{{route('addcowtype')}}">Cow Category</a></li>
                 </ul>
             </li>
 
            
-
+            <li><a href="{{route('addcowtype')}}"></i><i class="fa fa-table"></i>  Cow Category</a></li>
 
                <li><a><i class="fa fa-desktop"></i> Monitoring <span class="fa fa-chevron-down"></span></a>
                    <ul class="nav child_menu">
@@ -42,7 +42,7 @@
                
 
                 
-                <li><a href="{{route('payment')}}"></i><i class="fa fa-table"></i>  Payment</a></li>
+                <li><a href="{{route('payment')}}"></i><i class="fa fa-calculator"></i>  Payment</a></li>
 
               
 

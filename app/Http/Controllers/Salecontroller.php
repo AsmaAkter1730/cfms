@@ -5,6 +5,7 @@ use App\Models\Milk_sale;
 use App\Models\Cow_sale;
 use App\Models\Addcow;
 use App\Models\Milk_collection;
+use App\Models\Milkstock;
 use Illuminate\Http\Request;
 
 class Salecontroller extends Controller
@@ -83,6 +84,13 @@ class Salecontroller extends Controller
          'price_perliter'=>$store->price_perliter
 
         ]);
+
+        Milkstock::create([
+            'stock_out'=>$store->liter,
+            'stock_in'=>0
+        ]);
+ 
+       
         return redirect()->route('milksales');
     }
 

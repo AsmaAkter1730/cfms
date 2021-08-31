@@ -10,7 +10,7 @@
                                   </li>
                                    <li class="dropdown">
                                    <li><a href="{{route('addstocks')}}" data-hover="add">  
-	                                 <button type="button" class="btn btn-outline-success">Add Stock</button></a></li> 
+	                                </a></li> 
                                      
                                      <div class="dropdown-menu" aria-labelledby="dropdownMenuButton"> </div>
 
@@ -34,25 +34,35 @@
 
     <tr>
      
-      <th style="width:10%;"scope="col">Stock ID</th>
-      <th style="width:10%;"scope="col">Stock In</th>
-      <th style="width:10%;"scope="col">Stock Out</th> 
-      <th style="width:10%;"scope="col">Availabe stock</th>
-      <th style="width:15%;"scope="col">Action</th>
+      <th style="width:20%;"scope="col">Stock ID</th>
+      <th style="width:20%;"scope="col">Stock In</th>
+      <th style="width:20%;"scope="col">Stock Out</th> 
+      <th style="width:20%;"scope="col">Availabe stock</th>
+ 
     </tr>
   </thead>
+
+        @php 
+           $total_in=0;
+           $total_out=0;
+       @endphp
+
+
   @foreach($milkstocks as  $data)
+
+    @php 
+        $total_in=$total_in+$data->stock_in;
+        $total_out=$total_out+$data->stock_out;
+    @endphp
+
   <tbody>
 
     <tr>
       <th scope="row">{{ $data->id}}</th>
       <td>{{ $data->stock_in}}</td>
       <td>{{ $data->stock_out}}</td>
-      <td>{{ $data->Availabe_stock}}</td>
-      <td class="table-action">
-         <a href="#"><button type="button" class="btn btn-success">Edit</button></a>
-         <a href="#"><button type="button" class="btn btn-danger">Delete</button></a>
-     </td>
+      <td>{{$total_in-$total_out }}</td>
+      
     </tr>
    
   </tbody>

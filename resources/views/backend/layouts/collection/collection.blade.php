@@ -34,11 +34,12 @@
     <tr>
       <th style="width:10%;"scope="col">Milk_Collection No.</th>
       <th style="width:10%;"scope="col">Cow Number</th>
-      <th style="width:10%;"scope="col">Available Stock</th>
+      
       <th style="width:10%;"scope="col">Date</th>
+     
       <th style="width:10%;"scope="col">Liter</th>
-      <th style="width:10%;"scope="col">Price per Liter</th>
-      <th style="width:10%;"scope="col">Total</th>
+      
+      
       <th style="width:20%;"scope="col">Action</th>
     </tr>
   </thead>
@@ -48,15 +49,16 @@
     <tr>
       <th scope="row">{{ $data->collection_ID_No}}</th>
       <td>{{ $data->cow_number}}</td>
-      <td>{{ $data->avialable_stock}}</td>
+   
       <td>{{ $data->date}}</td>
+   
       <td>{{ $data->liter}}</td>
-      <td> {{ $data->price_perliter}}</td>
-      <td>{{ $data->total}}</td>
+      
+    
       
       <td class="table-action">
-                            <a href="#"><button type="button" class="btn btn-success">Edit</button></a>
-                            <a href="#"><button type="button" class="btn btn-danger">Delete</button></a>
+                            <a href="#"><button class="btn"><i class="glyphicon glyphicon-pencil"style="font-size:15px"></i></button></a>
+                             <a href="#"><button class="btn"><i class="fa fa-trash"style="font-size:20px"></i></button></a>
                         </td>
       
     </tr>

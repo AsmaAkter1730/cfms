@@ -14,7 +14,7 @@ class informationcontroller extends Controller
         //  $addcows = Addcow::all();
         
        //$variable name= modelname::paginate(number);
-    $addcows = Addcow::paginate(6);
+    $addcows = Addcow::with('Cowtype')->paginate(6);
 
         return view('backend.layouts.cowinfo.cow',compact('addcows'));
     }
@@ -32,8 +32,9 @@ class informationcontroller extends Controller
      //modelname::create([]);
       Addcow::create([
           //formname=>$variablename->(bladefile)name
+          'cowtype_id'=>$store->cowtype_id,
        'cow_number'=>$store->cow_number,
-       'cow_type'=>$store->cow_type,
+       
        'Gender'=>$store->Gender,
        'date_of_birth'=>$store->date_of_birth,
        'status'=>$store->status,

@@ -153,18 +153,14 @@
                       <form action="{{route('dashboards.add.task')}}" method="post">
                           @csrf
                         <div class="form-group">
-                            <label for="exampleInputEmail1">Email address</label>
+                            <label for="exampleInputEmail1"></label>
                             <input type="text" class="form-control" id="exampleInputEmail1"  name="task" placeholder="What do you need to do today?">
                             
                         </div>
                         <input type="submit" class="btn btn-info" value="Add">
-                        <!-- <button type="submit" class="btn btn-primary">Submit</button> -->
+                       
                         </form>
-                          <!-- <div class="add-items d-flex" > 
-                              <input type="text" class="form-control todo-list-input" placeholder="" name="task">
-                                
-                               <button type="submit" class="btn btn-info">Add</button> 
-                         </div> -->
+                          
                       <div class="list-wrapper">
                               
               </div>
@@ -173,13 +169,13 @@
               
                          <div class="">
                          <table class="table">
-                            <thead>
+                            <thead class="thead-light">
                                 <tr>
                                 <th scope="col" style="width:5%;">Serial </th>
                                 <th scope="col" style="width:80%;">Tasks</th>
                                 <th scope="col"style="width:15%;">Action</th>
                                 </tr>
-                            </thead>
+                            </thead >
                                 
                             <tbody>
                             @foreach($tasks as $task)
@@ -190,9 +186,9 @@
                                     <td>{{$task->tasks}}</td>
                                     
                                     <td>
-                                        <a href="">
-                                            <button type="button" class="btn btn-primary">Edit</button>
-                                            <button type="button" class="btn btn-danger">Delete</button>
+                                       
+                                    <a href="#"><button class="btn"><i class="fa fa-trash"style="font-size:20px"></i></button></a>
+                                            
                                         </a>
                                     </td>
                                    

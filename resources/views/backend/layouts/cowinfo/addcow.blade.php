@@ -48,7 +48,7 @@
         <div class="col-md-6">
            
            <label class="form-label">Cow Type</label> 
-           <select class="form-control" name="cow_type"placeholder="Cow Type" >
+           <select class="form-control" name="cowtype_id" id="cowtype_id" placeholder="Cow Type" >
 
            @foreach($addcows as $add)
                  <option value="{{$add->id}}"> {{$add->cow_type}}</option>

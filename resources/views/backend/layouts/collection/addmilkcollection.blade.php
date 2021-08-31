@@ -69,10 +69,7 @@
             <input type="text" class="form-control" name="liter" placeholder="liter">
           </div>
         
-          <div class="col-md-6">
-            <label for="inputEmail4" class="form-label">Priceper Liter</label>
-            <input type="text" class="form-control" name="price_perliter" placeholder="price per liter">
-          </div>  
+           
         
        
 </div>

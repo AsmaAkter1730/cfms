@@ -32,17 +32,17 @@
                               <table class="table">
   <thead class="thead-light">
     <tr>
-      <th style="width:10%;"scope="col">Invoice No.</th>
+      <th style="width:10%;"scope="col">Cow_Sale ID</th>
       <th style="width:10%;"scope="col">Cow no.</th>
       <th style="width:10%;"scope="col">Customer Name</th>
-      <th style="width:15%;"scope="col">Email</th>
+      <th style="width:10%;"scope="col">Email</th>
       <th style="width:10%;"scope="col">customer Mobile</th>
       
       
       <th style="width:10%;"scope="col">Amount</th>
       <th style="width:10%;"scope="col">Date</th>
       <th style="width:10%;"scope="col">Remarks</th>
-      <th style="width:15%;"scope="col">Action</th>
+      <th style="width:20%;"scope="col">Action</th>
     </tr>
   </thead>
 
@@ -64,8 +64,9 @@
       
       
       <td class="table-action">
-                            <a href="#"><button type="button" class="btn btn-success">Edit</button></a>
-                            <a href="#"><button type="button" class="btn btn-danger">Delete</button></a>
+                               <a href="#"><button class="btn"><i class="glyphicon glyphicon-pencil"style="font-size:15px"></i></button></a>
+                               <a href="#"><button class="btn"><i class="fa fa-trash"style="font-size:20px"></i></button></a>
+                                <a href="#"><button class="btn"><i class="fa fa-print"style="font-size:24px"></i></button></a>
                         </td>
       
     </tr>

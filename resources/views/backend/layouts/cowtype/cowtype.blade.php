@@ -33,7 +33,8 @@
 
 
     <tr>
-     
+
+    <th style="width:10%;"scope="col">ID</th>
       <th style="width:10%;"scope="col">cow Type</th>
      
       <th style="width:10%;"scope="col">Color</th> 
@@ -41,10 +42,12 @@
       <th style="width:15%;"scope="col">Action</th>
     </tr>
   </thead>
-  @foreach($cowtype as  $data)
+  
   <tbody>
-
+  @foreach($cowtype as  $data)
     <tr>
+      
+    <th scope="row">{{ $data->id}}</th>
       <th scope="row">{{ $data->cow_type}}</th>
       
       <td>{{ $data->color}}</td>
@@ -53,14 +56,16 @@
      
       
       <td class="table-action">
-                            <a href="#"><button type="button" class="btn btn-success">Edit</button></a>
-                            <a href="#"><button type="button" class="btn btn-danger">Delete</button></a>
+                            <a href="{{route('cowcategory',$data->id)}}"><button type="button" class="btn btn-primary">view</button></a>
+                            <a href="#"><button class="btn"><i class="glyphicon glyphicon-pencil"style="font-size:15px"></i></button></a>
+                            <a href="#"><button class="btn"><i class="fa fa-trash"style="font-size:20px"></i></button></a>
                         </td>
     </tr>
-    
+
+    @endforeach
   </tbody>
   
-  @endforeach
+ 
 
 </table>
 {{ $cowtype->links('pagination::bootstrap-4') }}

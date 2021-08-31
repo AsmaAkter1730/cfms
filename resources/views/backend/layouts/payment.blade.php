@@ -40,7 +40,7 @@
   <thead class="thead-light">
     <tr>
    
-                <th scope="col"style="width:15%;" scope="col">cow_number</th>
+                <th scope="col"style="width:15%;" scope="col">Invoice No.</th>
                 <th style="width:15%;"scope="col">Total Amount</th>
                 <th style="width:15%;"scope="col">Paid Amount</th>
                 <th style="width:15%;"scope="col">Due Amount</th>
@@ -51,15 +51,16 @@
   @foreach($payments as  $data)
   <tbody>
     <tr>
-      <th scope="row">{{ $data->cow_number}}</th>
+      <th scope="row">{{ $data->id}}</th>
     
       <td>{{ $data->Total_amount}}  BDT</td>
       <td>{{ $data->Paid_amount}}  BDT</td>
       <td>{{ $data->due_amount}}  BDT</td>
       <td>{{ $data->date}}</td>
       <td class="table-action">
-         <a href="#"><button type="button" class="btn btn-success">Edit</button></a>
-         <a href="#"><button type="button" class="btn btn-danger">Delete</button></a>
+      <a href="#"><button class="btn"><i class="glyphicon glyphicon-pencil"style="font-size:15px"></i></button></a>
+                             <a href="#"><button class="btn"><i class="fa fa-trash"style="font-size:20px"></i></button></a>
+         
      </td>
     </tr>
     

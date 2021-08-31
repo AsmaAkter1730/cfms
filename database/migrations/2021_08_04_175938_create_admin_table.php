@@ -31,3 +31,5 @@ class CreateAdminTable extends Migration
         Schema::dropIfExists('admin');
     }
 }
+
+
