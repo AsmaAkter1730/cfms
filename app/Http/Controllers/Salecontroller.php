@@ -24,10 +24,9 @@ class Salecontroller extends Controller
     public function addcowsale()
     {
 
-        $cow_sales = Addcow::all();
-        
-        
-        return view('backend.layouts.cowsale.addcowsale',compact('cow_sales'));
+       // $cow_sales = Addcow::all();
+        $cow_sales = Addcow::where('status','available')->get();
+       return view('backend.layouts.cowsale.addcowsale',compact('cow_sales'));
 
     }
     public function addcowsalestore(Request $store)
@@ -44,6 +43,15 @@ class Salecontroller extends Controller
         'remarks'=>$store->remarks
 
         ]);
+
+
+      //updatecow sale sold
+      
+        $cow=Addcow::find($store->cow_number);
+        $cow->update([
+            'status'=>'sold'
+        ]);
+
         return redirect()->route('cowsales');
     }
 
@@ -89,6 +97,7 @@ class Salecontroller extends Controller
             'stock_out'=>$store->liter,
             'stock_in'=>0
         ]);
+       
  
        
         return redirect()->route('milksales');

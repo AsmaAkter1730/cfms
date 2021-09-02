@@ -7,7 +7,7 @@
 
 <div class="x_panel">
       <div class="x_title">
-                    <h2>Vaccine Monitoring </h2>
+                    <h2>Vaccine Plan </h2>
                     
                              <ul class="nav navbar-right panel_toolbox">
                                   <li>
@@ -39,11 +39,13 @@
                               <table class="table">
   <thead class="thead-light">
     <tr>
-     
-      <th style="width:25%;"scope="col">Cow Number</th>
-      <th style="width:25%;"scope="col">Date</th>
-      <th style="width:25%;"scope="col">Remarks</th>
-      <th style="width:25%;"scope="col">Action</th>
+ 
+    <th style="width:10%;"scope="col">ID</th>
+    <th style="width:20%;"scope="col">Vaccine_name</th>
+      <th style="width:10%;"scope="col">Cow Number</th>
+      <th style="width:20%;"scope="col">Date</th>
+      <th style="width:20%;"scope="col">Remarks</th>
+      <th style="width:20%;"scope="col">Action</th>
     </tr>
   </thead>
 
@@ -51,6 +53,9 @@
 
   <tbody>
     <tr>
+    <td>{{ $data->id}}</td>
+    <td>{{ $data->Vaccine_name->vaccine_name}}</td>
+    
       <th scope="row">{{ $data->cow_number}}</th>
       <td>{{ $data->vaccine_date}}</td>
       <td>{{ $data->Remarks}}</td>

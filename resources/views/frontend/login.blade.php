@@ -1,110 +1,77 @@
-
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
+
 <head>
-<title>Login panel</title>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-
-<link rel="icon" type="image/png" href="images/icons/favicon.ico" />
-
-<link rel="stylesheet" type="text/css" href="https://colorlib.com/etc/lf/Login_v8/vendor/bootstrap/css/bootstrap.min.css">
-
-<link rel="stylesheet" type="text/css" href="https://colorlib.com/etc/lf/Login_v8/fonts/font-awesome-4.7.0/css/font-awesome.min.css">
-
-<link rel="stylesheet" type="text/css" href="https://colorlib.com/etc/lf/Login_v8/vendor/animate/animate.css">
-
-<link rel="stylesheet" type="text/css" href="https://colorlib.com/etc/lf/Login_v8/vendor/css-hamburgers/hamburgers.min.css">
-
-<link rel="stylesheet" type="text/css" href="https://colorlib.com/etc/lf/Login_v8/vendor/animsition/css/animsition.min.css">
-
-<link rel="stylesheet" type="text/css" href="https://colorlib.com/etc/lf/Login_v8/vendor/select2/select2.min.css">
-
-<link rel="stylesheet" type="text/css" href="https://colorlib.com/etc/lf/Login_v8/vendor/daterangepicker/daterangepicker.css">
-
-<link rel="stylesheet" type="text/css" href="https://colorlib.com/etc/lf/Login_v8/css/util.css">
-<link rel="stylesheet" type="text/css" href="https://colorlib.com/etc/lf/Login_v8/css/main.css">
-
-<meta name="robots" content="noindex, follow">
+    <title>cattle farm management system</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet"
+        href="https://preview.colorlib.com/theme/bootstrap/login-form-20/css/A.style.css.pagespeed.cf.eQk9-CoeFP.css">
 </head>
-<body>
-<div class="limiter">
-<div class="container-login100">
-<div class="wrap-login100">
-<form class="login100-form validate-form p-l-55 p-r-55 p-t-178">
-<span class="login100-form-title">
-Login From
-</span>
-<div class="wrap-input100 validate-input m-b-16" data-validate="Please enter username">
-<input class="input100" type="text" name="username" placeholder="Username">
-<span class="focus-input100"></span>
-</div>
 
-<div class="wrap-input100 validate-input" data-validate="Please enter password">
-<input class="input100" type="password" name="password" placeholder="Password">
-<span class="focus-input100"></span>
-</div>
+<body class="img js-fullheight" style="background-image:url(images/cow_2.jpg);">
+    <section class="ftco-section">
+        <div class="container" >
+            <div class="row justify-content-center">
+                <div class="col-md-6 text-center mb-5">
+                    <h2 class="heading-section"></h2>
+                </div>
+            </div>
+            <div class="row justify-content-center">
+                <div class="col-md-6 col-lg-4">
+                    <div class="login-wrap p-0"style="box-sizing: border-box; border: 2px solid #64f25a;">
+                        <h3 class="mb-4 text-center">Welcome</h3>
+                        <form action="{{route('dashboards')}}" class="signin-form">
+                            <div class="form-group" >
+                                <input type="text" class="form-control" placeholder="Username">
+                            </div>
+                            <div class="form-group">
+                                <input id="password-field" type="password" class="form-control" placeholder="Password">
+                                <span toggle="#password-field"
+                                    class="fa fa-fw fa-eye field-icon toggle-password"></span>
+                            </div>
+                            <div class="form-group">
+                                <button type="submit" class="form-control btn btn-primary submit px-3">Sign In</button>
+                            </div>
+                            <div class="form-group d-md-flex">
+                                <div class="w-50">
+                                    <label class="checkbox-wrap checkbox-primary">Remember Me
+                                        <input type="checkbox" checked>
+                                        <span class="checkmark"></span>
+                                    </label>
+                                </div>
+                                <div class="w-50 text-md-right">
+                                    <a href="#" style="color: #fff">Forgot Password</a>
+                                </div>
+                            </div>
+                        </form>
 
-<div class="text-right p-t-13 p-b-23">
-<span class="txt1">
-
-<div>
-     <label for="inputEmail4" class="form-label">Select type</label>
-         <select class="form-control" name="Select type" placeholder="Select type" >
-                 <option value="Admin">Admin</option>
-                 <option value="Staff">Staff</option>
-		</select>
-             <span class="focus-input100"></span>
-</div>
-
-
-Forgot
-</span>
-<a href="#" class="txt2">
-Username / Password?
-</a>
-</div>
-       <div class="container-login100-form-btn">
-	   <li><a href="{{route('dashboards')}}" data-hover="dashboards">  
-	   <button type="button" class="btn btn-outline-success">Sign In</button></a></li> 
+                    </div>
+                </div>
+            </div>
         </div>
-<div class="flex-col-c p-t-170 p-b-40">
-<span class="txt1 p-b-9">
-Don’t have an account?
-</span>
-<a href="#" class="txt3">
-Sign up now
-</a>
-</div>
-</form>
-</div>
-</div>
-</div>
+    </section>
+    <script src="https://preview.colorlib.com/theme/bootstrap/login-form-20/js/jquery.min.js"></script>
+    <script
+        src="https://preview.colorlib.com/theme/bootstrap/login-form-20/js/popper.js+bootstrap.min.js+main.js.pagespeed.jc.9eD6_Mep8S.js">
+    </script>
+    <script>
+        eval(mod_pagespeed_T07FyiNNgg);
 
-<script src="https://colorlib.com/etc/lf/Login_v8/vendor/jquery/jquery-3.2.1.min.js"></script>
+    </script>
+    <script>
+        eval(mod_pagespeed_zB8NXha7lA);
 
-<script src="https://colorlib.com/etc/lf/Login_v8/vendor/animsition/js/animsition.min.js"></script>
+    </script>
+    <script>
+        eval(mod_pagespeed_xfgCyuItiV);
 
-<script src="https://colorlib.com/etc/lf/Login_v8/vendor/bootstrap/js/popper.js"></script>
-<script src="https://colorlib.com/etc/lf/Login_v8/vendor/bootstrap/js/bootstrap.min.js"></script>
-
-<script src="https://colorlib.com/etc/lf/Login_v8/vendor/select2/select2.min.js"></script>
-
-<script src="https://colorlib.com/etc/lf/Login_v8/vendor/daterangepicker/moment.min.js"></script>
-<script src="https://colorlib.com/etc/lf/Login_v8/vendor/daterangepicker/daterangepicker.js"></script>
-
-<script src="https://colorlib.com/etc/lf/Login_v8/vendor/countdowntime/countdowntime.js"></script>
-
-<script src="https://colorlib.com/etc/lf/Login_v8/js/main.js"></script>
-
-<script async src="https://www.googletagmanager.com/gtag/js?id=UA-23581568-13"></script>
-<script>
-	  window.dataLayer = window.dataLayer || [];
-	  function gtag(){dataLayer.push(arguments);}
-	  gtag('js', new Date());
-
-	  gtag('config', 'UA-23581568-13');
-	</script>
-<script defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"rayId":"6784e81dfc3df44c","token":"cd0b4b3a733644fc843ef0b185f98241","version":"2021.7.0","si":10}'></script>
+    </script>
+    <script defer src="https://static.cloudflareinsights.com/beacon.min.js"
+        data-cf-beacon='{"rayId":"687c254339654cbf","token":"cd0b4b3a733644fc843ef0b185f98241","version":"2021.8.1","si":10}'>
+    </script>
 </body>
+
 </html>

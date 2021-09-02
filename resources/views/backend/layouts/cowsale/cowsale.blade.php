@@ -42,6 +42,7 @@
       <th style="width:10%;"scope="col">Amount</th>
       <th style="width:10%;"scope="col">Date</th>
       <th style="width:10%;"scope="col">Remarks</th>
+      
       <th style="width:20%;"scope="col">Action</th>
     </tr>
   </thead>

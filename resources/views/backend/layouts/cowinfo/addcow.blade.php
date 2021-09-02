@@ -60,7 +60,7 @@
            
            <label class="form-label">Select Status</label> 
            <select class="form-control" name="status" >
-               <option value="sold">sold</option>
+              
                <option value="available">Availabe</option>
                </select>
              </div>
@@ -81,7 +81,7 @@
           </div>
           <div class="col-md-6">
             <label for="inputEmail4" class="form-label">Choose Image</label>
-            <input type="file" class="form-control" name="image" placeholder="choose image">
+            <input type="file" class="form-control" name="image" placeholder="choose image" >
           </div>
 </div>
 

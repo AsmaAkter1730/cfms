@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use App\Models\Vaccine_list;
 use Illuminate\Database\Eloquent\Relation\BelongsTo;
 
 class Vaccine_monitoring extends Model
@@ -15,5 +16,12 @@ class Vaccine_monitoring extends Model
 
         return $this->belongsto(Addcow::class);
     }
+    
+    public function vaccine_name(){
 
+        return $this->belongsto(Vaccine_list::class,'vaccine_id','id');
+    }
+
+   
+   
 }

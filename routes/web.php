@@ -60,10 +60,21 @@ Route::get('/vaccine',[Monitoringcontroller::class,'vaccine'])->name('vaccines')
 Route::get('/addvaccine',[Monitoringcontroller::class,'addvaccine'])->name('addvaccine');
 Route::post('/addvaccine',[Monitoringcontroller::class,'addvaccinestore'])->name('addvaccinestore');
 
+//vaccine_listname
+Route::get('/vaccine_list',[Monitoringcontroller::class,'vaccine_list'])->name('vaccine_list');
+Route::get('/addvaccinelist_name',[Monitoringcontroller::class,'addvaccine_name'])->name('addvaccine_name');
+Route::post('/addvaccineliststore',[Monitoringcontroller::class,'addvaccine_namestore'])->name('addvaccine_namestore');
+
 //feed monitoring
 Route::get('/feed',[Monitoringcontroller::class,'feed'])->name('feeds');
 Route::get('/addfeed',[Monitoringcontroller::class,'addfeed'])->name('addfeed');
 Route::post('/addfeed',[Monitoringcontroller::class,'addfeedstore'])->name('addfeedstore');
+
+//feed_item_list
+Route::get('/feed_item',[Monitoringcontroller::class,'feed_item'])->name('feed_items');
+Route::get('/addfeed_item',[Monitoringcontroller::class,'addfeed_item'])->name('addfeed_items');
+Route::post('/addfeed_itemstore',[Monitoringcontroller::class,'addfeed_itemstore'])->name('addfeed_itemstores');
+
 
 //cowsales
 Route::get('/cowsale',[Salecontroller::class,'cowsale'])->name('cowsales');

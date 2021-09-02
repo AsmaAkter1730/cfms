@@ -1,3 +1,4 @@
+
 @extends('backend.main')
 
 @section('fixedpage')
@@ -6,7 +7,7 @@
 
 <div class="x_panel">
       <div class="x_title">
-                    <h2>Feed Plan </h2>
+                    <h2>Feed Item List </h2>
                     
                              <ul class="nav navbar-right panel_toolbox">
                                   <li>
@@ -15,7 +16,7 @@
                                   
                                    <li class="dropdown">
                                   
-                                   <li><a href="{{route('addfeed')}}" data-hover="add">  
+                                   <li><a href="{{route('addfeed_items')}}" data-hover="add">  
 	                                 <button type="button" class="btn btn-outline-success">Add list</button></a></li> 
                                      
                                      <div class="dropdown-menu" aria-labelledby="dropdownMenuButton"> </div>
@@ -30,50 +31,42 @@
                                          <div class="clearfix"></div>
                 </div>
 
-
-
-<div class="x_content">
+                <div class="x_content">
                          <div class="">
                               <ul class="to_do">
                               <table class="table">
   <thead class="thead-light">
     <tr>
     <th style="width:10%;"scope="col">ID</th>
-      <th style="width:10%;"scope="col">Cow Number</th>
-      <th style="width:10%;"scope="col">Feed_item</th>
-      <th style="width:10%;"scope="col">Feed time</th>
-      <th style="width:10%;"scope="col">Quantity(kg)</th>
-      <th style="width:10%;"scope="col">Date</th>
-      <th style="width:10%;"scope="col">Remarks</th>
-      <th style="width:15%;"scope="col">Action</th>
+    <th style="width:20%;"scope="col">Feed_item</th>
+      <th style="width:20%;"scope="col">Description</th>
+      <th style="width:20%;"scope="col">Status</th>
+      <th style="width:20%;"scope="col">Action</th>
     </tr>
   </thead>
-  
 
-  @foreach($feed_monitoring as  $data)
+
+  @foreach($feed_item as  $data)
+  
   <tbody>
     <tr>
-    <td>{{ $data->id}}</td>
-      <th scope="row">{{ $data->cow_number}}</th>
-
-    
-      <td>{{ $data->Feed_item->Feed_item}}</td>
+    <th scope="row">{{ $data->id}}</th>
+      <th scope="row">{{ $data->Feed_item}}</th>
+      <td>{{ $data->description}}</td>
       
-      <td>{{ $data->Feed_time}}</td>
-      <td>{{ $data->Quantity}}.kg</td>
-      <td>{{ $data->date}}</td>
-      <td>{{ $data->Remarks}}</td>
+      <td>{{ $data->status}}</td>
+      
+     
       <td class="table-action">
-                            <a href="#"><button type="button" class="btn btn-success">Edit</button></a>
-                            <a href="#"><button type="button" class="btn btn-danger">Delete</button></a>
-                        </td>
+                             <a href="#"><button class="btn"><i class="glyphicon glyphicon-pencil"style="font-size:15px"></i></button></a>
+                             <a href="#"><button class="btn"><i class="fa fa-trash"style="font-size:20px"></i></button></a>
+     </td>
     </tr>
-    
+   @endforeach
   </tbody>
-  @endforeach
+  
 </table>
-
-{{ $feed_monitoring->links('pagination::bootstrap-4') }}
+{{ $feed_item ->links('pagination::bootstrap-4') }}
 
                                </ul> 
                             </div>
@@ -82,5 +75,7 @@
 </div>
 
 
-@endsection
 
+
+
+@endsection

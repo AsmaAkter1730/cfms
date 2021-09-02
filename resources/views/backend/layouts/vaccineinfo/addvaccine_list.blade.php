@@ -37,36 +37,24 @@
         
                  
                               <div class="container p-5">
-    <form class="row g-3 d-flex justify-content-center p-5 bg-light shadow border" action="{{route('addvaccinestore')}}" method="post">
+    <form class="row g-3 d-flex justify-content-center p-5 bg-light shadow border" action="{{route('addvaccine_namestore')}}" method="post">
    @csrf
    <div class="col-md-6">
             <label for="inputEmail4" class="form-label">Vaccine Name</label>
-            <select class="form-control"id="exampleFormControlSelect1" name="vaccine_name" placeholder="vaccine_name">
-                 @foreach($Vaccine_monitoring as $add)
-                 <option value="{{$add->id}}"> {{$add->vaccine_name}}</option>
-                 @endforeach
-            </select>
+            <input type="text" class="form-control" name="vaccine_name" placeholder="vaccine_name">
+          </div>
+
+          <div class="col-md-6">
+            <label for="inputEmail4" class="form-label">Purchase Date</label>
+            <input type="date" class="form-control" id="inputEmail4" name="purchase_date">
           </div>
           
           <div class="col-md-6">
-             <label for="exampleFormControlSelect1">Cow Number</label>
-             <select class="form-control" id="exampleFormControlSelect1"name="cow_number">
-      
-                 @foreach($Cows as $add)
-                 <option value="{{$add->id}}"> {{$add->cow_number}}</option>
-                 @endforeach
-            </select>
+            <label for="inputEmail4" class="form-label"> Expired Date</label>
+            <input type="date" class="form-control" id="inputEmail4" name="expired_date">
           </div>
           
-          <div class="col-md-6">
-            <label for="inputEmail4" class="form-label">Date</label>
-            <input type="date" class="form-control" id="inputEmail4" name="vaccine_date">
-          </div>
-          
-        <div class="col-md-6">
-            <label for="inputEmail4" class="form-label">Remarks</label>
-            <input type="text" class="form-control" name="Remarks" placeholder="Remarks">
-          </div>
+        
         
           
         

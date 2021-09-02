@@ -14,20 +14,31 @@
                 <ul class="nav child_menu">
                    <li><a href="{{route('staffs')}}">Staff</a></li>
                    <li><a href="{{route('cows')}}">Cow</a></li>
-                   <li><a href="{{route('addcowtype')}}">Cow Category</a></li>
+                   
                 </ul>
             </li>
 
            
             <li><a href="{{route('addcowtype')}}"></i><i class="fa fa-table"></i>  Cow Category</a></li>
 
-               <li><a><i class="fa fa-desktop"></i> Monitoring <span class="fa fa-chevron-down"></span></a>
+
+               <li><a><i class="fa fa-desktop"></i> Vaccine Monitoring <span class="fa fa-chevron-down"></span></a>
                    <ul class="nav child_menu">
-                      <li><a href="{{route('vaccines')}}">Vaccine</a></li>
-                      <li><a href="{{route('feeds')}}">Feed</a></li>
+                      <li><a href="{{route('vaccines')}}">Vaccine Plan</a></li>
+                      <li><a href="{{route('vaccine_list')}}">Vaccine</a></li>
 
                     </ul>
                 </li>
+
+                <li>
+                      <a><i class="	fa fa-tv"></i> Feed Monitoring <span class="fa fa-chevron-down"></span></a>
+                    <ul class="nav child_menu">
+                      <li><a href="{{route('feeds')}}">Feed Plan</a></li>
+                      <li><a href="{{route('feed_items')}}">Feed</a></li>
+
+                    </ul>
+                </li>
+                
                 <li><a href="{{route('collections')}}"></i><i class="fa fa-plus-square"></i>  Milk Collection </a></li>
                 
                 <li><a href="{{route('stock')}}"></i><i class="fa fa-hourglass"></i> Stock</a></li>

@@ -16,6 +16,10 @@ class Feed_monitoring extends Model
 
         return $this->belongsto(Addcow::class);
     }
+    public function Feed_item(){
+
+        return $this->belongsto(Feed_item::class,'feed_id','id');
+    }
 
 
 }
