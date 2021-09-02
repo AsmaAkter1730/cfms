@@ -35,7 +35,7 @@
         
                  
                               <div class="container p-5">
-    <form class="row g-3 d-flex justify-content-center p-5 bg-light shadow border" action="{{route('addstaffstore')}}" method="post">
+    <form class="row g-3 d-flex justify-content-center p-5 bg-light shadow border" action="{{route('addstaffstore')}}" method="post"enctype="multipart/form-data">
 
   @csrf
         <div class="col-md-6">

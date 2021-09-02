@@ -37,7 +37,7 @@
         
                  
                               <div class="container p-5">
-    <form class="row g-3 d-flex justify-content-center p-5 bg-light shadow border" action="{{route('addcowstore')}}" method="post">
+    <form class="row g-3 d-flex justify-content-center p-5 bg-light shadow border" action="{{route('addcowstore')}}" method="post" enctype="multipart/form-data">
    
     @csrf
         <div class="col-md-6">
@@ -80,7 +80,7 @@
             <input type="date" class="form-control" id="inputEmail4" name="date_of_birth">
           </div>
           <div class="col-md-6">
-            <label for="inputEmail4" class="form-label">Choose Image</label>
+            <label for="description" class="form-label" >Choose Image</label>
             <input type="file" class="form-control" name="image" placeholder="choose image" >
           </div>
 </div>

@@ -21,7 +21,7 @@ class CreateAddcowsTable extends Migration
             $table->string('Gender');
             $table->string('date_of_birth');
             $table->string('status');
-            $table->string('image');
+            $table->string('image')->nullable();
             $table->timestamps();
         });
     }

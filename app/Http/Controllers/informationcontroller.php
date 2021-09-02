@@ -28,7 +28,26 @@ class informationcontroller extends Controller
   //post
    public function addcowstore(Request $store)
    {
-    // dd($store->all());
+
+      //dd($store->all());
+       //image
+
+    $fileName='';
+    if($store->hasFile('image'))
+    {
+
+        // dd(date('Ymdhms').'.'.$store->file('image'))->getClientOriginalExtension();
+  //dd(date('Ymdhms'));
+
+        $file=$store->file('image');
+       //generate file name here
+        $fileName=date('Ymdhms').'.'.$file->getClientOriginalExtension();
+        $file->storeAs('/uploads',$fileName);
+    }
+
+
+
+    //dd($store->all());
      //modelname::create([]);
       Addcow::create([
           //formname=>$variablename->(bladefile)name
@@ -38,7 +57,7 @@ class informationcontroller extends Controller
        'Gender'=>$store->Gender,
        'date_of_birth'=>$store->date_of_birth,
        'status'=>$store->status,
-       'image'=>$store->image
+       'image'=>$fileName
       ]);
       return redirect()->route('cows');
    }
@@ -62,11 +81,29 @@ class informationcontroller extends Controller
    //post
    public function addstaffstore(Request $store)
    {
+
+
+    //dd($store->all());
+       //image
+
+       $fileName='';
+       if($store->hasFile('image'))
+       {
+   
+           // dd(date('Ymdhms').'.'.$store->file('image'))->getClientOriginalExtension();
+     //dd(date('Ymdhms'));
+   
+           $file=$store->file('image');
+          //generate file name here
+           $fileName=date('Ymdhms').'.'.$file->getClientOriginalExtension();
+           $file->storeAs('/uploads',$fileName);
+       }
+   
       // dd($store->all());
        //modelname::create([]);
        Staff::create([
        'staff_name'=>$store->staff_name,
-       'image'=>$store->image,
+       'image'=>$fileName,
        'email'=>$store->email,
        'Mobile'=>$store->Mobile,
        'Designation'=>$store->Designation,

@@ -46,7 +46,9 @@
   <tbody>
     <tr>
       <th scope="row">{{ $data->staff_name}}</th>
-      <td>{{ $data->image }}</td>
+      <td>
+         <img src="{{url('/uploads/uploads/'.$data->image)}}" width="40px" alt="Choose_image">
+         </td>  
       <td>{{ $data->email}}</td>
       <td>{{ $data->Address }}</td>
       <td>{{ $data->Mobile}}</td>

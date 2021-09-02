@@ -56,7 +56,9 @@
 
       <th scope="row">{{ $data->id }}</th>
       <td>{{ $data->cow_number }}</td>
-      <td>{{ $data->image }}</td>
+      <td>
+         <img src="{{url('/uploads/uploads/'.$data->image)}}" width="40px" alt="Choose_image">
+         </td>
       <td>{{ $data->Gender}}</td>
       <td>{{ $data->date_of_birth}}</td>
       <td>{{ $data->Cowtype->cow_type}}</td>
