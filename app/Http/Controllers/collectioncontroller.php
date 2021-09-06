@@ -33,9 +33,7 @@ class collectioncontroller extends Controller
     {
        // dd($store->all());
         Milk_collection::create([
-            'collection_ID_No'=>$store->collection_ID_No,
             'cow_number'=>$store->cow_number,
-
             'date'=>$store->date,
             'liter'=>$store->liter,
             

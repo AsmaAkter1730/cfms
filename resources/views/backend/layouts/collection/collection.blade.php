@@ -32,7 +32,7 @@
                               <table class="table">
   <thead class="thead-light">
     <tr>
-      <th style="width:10%;"scope="col">Milk_Collection No.</th>
+      <th style="width:10%;"scope="col">Milk_Collection ID No.</th>
       <th style="width:10%;"scope="col">Cow Number</th>
       
       <th style="width:10%;"scope="col">Date</th>
@@ -47,7 +47,7 @@
   @foreach($milk_collection as  $data)
   <tbody>
     <tr>
-      <th scope="row">{{ $data->collection_ID_No}}</th>
+      <th scope="row">{{ $data->id}}</th>
       <td>{{ $data->cow_number}}</td>
    
       <td>{{ $data->date}}</td>

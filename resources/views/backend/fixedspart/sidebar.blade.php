@@ -17,15 +17,17 @@
                    
                 </ul>
             </li>
-
+            </li>
+    
            
             <li><a href="{{route('addcowtype')}}"></i><i class="fa fa-table"></i>  Cow Category</a></li>
 
 
                <li><a><i class="fa fa-desktop"></i> Vaccine Monitoring <span class="fa fa-chevron-down"></span></a>
                    <ul class="nav child_menu">
+                   <li><a href="{{route('vaccine_list')}}">Vaccine</a></li>
                       <li><a href="{{route('vaccines')}}">Vaccine Plan</a></li>
-                      <li><a href="{{route('vaccine_list')}}">Vaccine</a></li>
+                     
 
                     </ul>
                 </li>
@@ -33,9 +35,11 @@
                 <li>
                       <a><i class="	fa fa-tv"></i> Feed Monitoring <span class="fa fa-chevron-down"></span></a>
                     <ul class="nav child_menu">
+                    
+                    <li><a href="{{route('feed_items')}}">Feed</a></li>
                       <li><a href="{{route('feeds')}}">Feed Plan</a></li>
-                      <li><a href="{{route('feed_items')}}">Feed</a></li>
-
+                      <li><a href="{{route('feedplan.cows')}}">Feedplan_cow</a></li>
+                      
                     </ul>
                 </li>
                 
@@ -66,7 +70,7 @@
 
 
 <!--sideber down -->
-<div class="sidebar-footer hidden-small">
+<!-- <div class="sidebar-footer hidden-small">
     <a data-toggle="tooltip" data-placement="top" title="Settings">
       <span class="glyphicon glyphicon-cog" aria-hidden="true"></span>
    </a>
@@ -77,6 +81,21 @@
        <span class="glyphicon glyphicon-eye-close" aria-hidden="true"></span>
     </a>
      <a data-toggle="tooltip" data-placement="top" title="Logout" href="login.html">
+       <span class="glyphicon glyphicon-off" aria-hidden="true"></span>
+     </a>
+</div> -->
+
+<div class="sidebar-footer hidden-small">
+    <!-- <a data-toggle="tooltip" data-placement="top" title="Settings">
+      <span class="glyphicon glyphicon-cog" aria-hidden="true"></span>
+   </a>
+    <a data-toggle="tooltip" data-placement="top" title="FullScreen">
+         <span class="glyphicon glyphicon-fullscreen" aria-hidden="true"></span>
+    </a> -->
+    <!-- <a data-toggle="tooltip" data-placement="top" title="Lock">
+       <span class="glyphicon glyphicon-eye-close" aria-hidden="true"></span>
+    </a> -->
+     <a data-toggle="tooltip" data-placement="top" title="Logout" href="{{route('logout')}}">
        <span class="glyphicon glyphicon-off" aria-hidden="true"></span>
      </a>
 </div>

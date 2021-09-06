@@ -12,6 +12,8 @@ use App\Http\Controllers\collectioncontroller;
 use App\Http\Controllers\employeecontroller;
 use App\Http\Controllers\Stockcontroller;
 use App\Http\Controllers\Cowtypecontroller;
+ use App\Http\Controllers\ViewcowController;
+
 /*
 /*
 |--------------------------------------------------------------------------
@@ -29,85 +31,98 @@ use App\Http\Controllers\Cowtypecontroller;
 //homepage
 Route::get('/',[Homepagecontroller::class,'homepage'])->name('homepages');
 
-
-//information
-Route::get('/main',[Dashcontroller::class,'dash']);
-Route::get('/dashboard',[Dashcontroller::class,'dashboard'])->name('dashboards');
-Route::post('/dashboard/add/task',[Dashcontroller::class,'addtask'])->name('dashboards.add.task');
+//admin panel routes
 
 
-//cow
-Route::get('/cow',[informationcontroller::class,'cow'])->name('cows');
-Route::get('/addcow',[informationcontroller::class,'addcow'])->name('addcow');
-Route::post('/addcow',[informationcontroller::class,'addcowstore'])->name('addcowstore');
-
-//cow type
-
-Route::get('/addcowType',[Cowtypecontroller::class,'addcow_type'])->name('addcowtype');
-Route::get('/addcowTypelist',[Cowtypecontroller::class,'typelist'])->name('addcowtypelist');
-Route::post('/cowtypestore',[Cowtypecontroller::class,'cowtypelist'])->name('typeliststore');
-Route::get('/cow/{id}/category',[Cowtypecontroller::class,'allcow'])->name('cowcategory');
+Route::get('/admin/login',[logincontroller::class,'login'])->name('logins');
+Route::post('/admin/login/post',[logincontroller::class,'loginPost'])->name('admin.login.post');
+Route::group(['prefix'=>'admin','middleware'=>'auth'],function(){
+ 
 
 
-//staff
-Route::get('/staff',[informationcontroller::class,'staff'])->name('staffs');
-Route::get('/addstaff',[informationcontroller::class,'addstaff'])->name('addstaff');
-Route::post('/addstaff',[informationcontroller::class,'addstaffstore'])->name('addstaffstore');
+  //logout
+  Route::get('/logout',[logincontroller::class,'logout'])->name('logout');
+        //information
+       
+     Route::get('/main',[Dashcontroller::class,'dash']);
+     Route::get('/dashboard',[Dashcontroller::class,'dashboard'])->name('dashboards');
+      Route::post('/dashboard/add/task',[Dashcontroller::class,'addtask'])->name('dashboards.add.task');
 
 
-//vaccine monitorig
-Route::get('/vaccine',[Monitoringcontroller::class,'vaccine'])->name('vaccines');
-Route::get('/addvaccine',[Monitoringcontroller::class,'addvaccine'])->name('addvaccine');
-Route::post('/addvaccine',[Monitoringcontroller::class,'addvaccinestore'])->name('addvaccinestore');
+    //cow
+     Route::get('/cow',[informationcontroller::class,'cow'])->name('cows');
+     Route::get('/addcow',[informationcontroller::class,'addcow'])->name('addcow');
+     Route::post('/addcow',[informationcontroller::class,'addcowstore'])->name('addcowstore');
 
-//vaccine_listname
-Route::get('/vaccine_list',[Monitoringcontroller::class,'vaccine_list'])->name('vaccine_list');
-Route::get('/addvaccinelist_name',[Monitoringcontroller::class,'addvaccine_name'])->name('addvaccine_name');
-Route::post('/addvaccineliststore',[Monitoringcontroller::class,'addvaccine_namestore'])->name('addvaccine_namestore');
+    //cow type
 
-//feed monitoring
-Route::get('/feed',[Monitoringcontroller::class,'feed'])->name('feeds');
-Route::get('/addfeed',[Monitoringcontroller::class,'addfeed'])->name('addfeed');
-Route::post('/addfeed',[Monitoringcontroller::class,'addfeedstore'])->name('addfeedstore');
-
-//feed_item_list
-Route::get('/feed_item',[Monitoringcontroller::class,'feed_item'])->name('feed_items');
-Route::get('/addfeed_item',[Monitoringcontroller::class,'addfeed_item'])->name('addfeed_items');
-Route::post('/addfeed_itemstore',[Monitoringcontroller::class,'addfeed_itemstore'])->name('addfeed_itemstores');
+     Route::get('/addcowType',[Cowtypecontroller::class,'addcow_type'])->name('addcowtype');
+     Route::get('/addcowTypelist',[Cowtypecontroller::class,'typelist'])->name('addcowtypelist');
+     Route::post('/cowtypestore',[Cowtypecontroller::class,'cowtypelist'])->name('typeliststore');
+     Route::get('/cow/{id}/category',[Cowtypecontroller::class,'allcow'])->name('cowcategory');
 
 
-//cowsales
-Route::get('/cowsale',[Salecontroller::class,'cowsale'])->name('cowsales');
-Route::get('/addcowsale',[Salecontroller::class,'addcowsale'])->name('addcowsale');
-Route::post('/addcowsale',[Salecontroller::class,'addcowsalestore'])->name('addcowsalestore');
-
-//milk sale
-Route::get('/milksale',[Salecontroller::class,'milksale'])->name('milksales');
-Route::get('/addmilksale',[Salecontroller::class,'addmilksale'])->name('addmilksale');
-Route::post('/addmilksale',[Salecontroller::class,'addmilksalestore'])->name('addmilksalestore');
+   //staff
+    Route::get('/staff',[informationcontroller::class,'staff'])->name('staffs');
+    Route::get('/addstaff',[informationcontroller::class,'addstaff'])->name('addstaff');
+    Route::post('/addstaff',[informationcontroller::class,'addstaffstore'])->name('addstaffstore');
 
 
+    //vaccine monitorig
+    Route::get('/vaccine',[Monitoringcontroller::class,'vaccine'])->name('vaccines');
+    Route::get('/addvaccine',[Monitoringcontroller::class,'addvaccine'])->name('addvaccine');
+    Route::post('/addvaccine',[Monitoringcontroller::class,'addvaccinestore'])->name('addvaccinestore');
 
-//milk collection 
-Route::get('/collection',[collectioncontroller::class,'collection'])->name('collections');
-Route::get('/addmilkcollection',[collectioncontroller::class,'addmilkcollection'])->name('addmilkcollection');
-Route::post('/addmilkcollection',[collectioncontroller::class,'addmilkcollectionstore'])->name('addmilkcollectionstore');
+   //vaccine_listname
+    Route::get('/vaccine_list',[Monitoringcontroller::class,'vaccine_list'])->name('vaccine_list');
+    Route::get('/addvaccinelist_name',[Monitoringcontroller::class,'addvaccine_name'])->name('addvaccine_name');
+    Route::post('/addvaccineliststore',[Monitoringcontroller::class,'addvaccine_namestore'])->name('addvaccine_namestore');
 
-//payment
-Route::get('/payment',[paymentcontroller::class,'payment'])->name('payment');
-Route::get('/addpayment',[paymentcontroller::class,'addpayment'])->name('addpayment');
-Route::post('/addpayment',[paymentcontroller::class,'addpaymentstore'])->name('addpaymentstore');
+    //feed monitoring
+    Route::get('/feed',[Monitoringcontroller::class,'feed'])->name('feeds');
+    Route::get('/addfeed',[Monitoringcontroller::class,'addfeed'])->name('addfeed');
+    Route::post('/addfeed',[Monitoringcontroller::class,'addfeedstore'])->name('addfeedstore');
 
-//login
-Route::get('/login',[logincontroller::class,'login'])->name('logins');
+    //feed_item_list
+    Route::get('/feed_item',[Monitoringcontroller::class,'feed_item'])->name('feed_items');
+    Route::get('/addfeed_item',[Monitoringcontroller::class,'addfeed_item'])->name('addfeed_items');
+    Route::post('/addfeed_itemstore',[Monitoringcontroller::class,'addfeed_itemstore'])->name('addfeed_itemstores');
+
+   // cow-feedplan
+    Route::get('/feedplan/cow',[ViewcowController::class,'feedplan_cow'])->name('feedplan.cows');
+    Route::get('/cow_feed/{id}/category',[ViewcowController::class,'allcow_feedplan'])->name('allcow.feedplans');
+    //cowsales
+   Route::get('/cowsale',[Salecontroller::class,'cowsale'])->name('cowsales');
+   Route::get('/addcowsale',[Salecontroller::class,'addcowsale'])->name('addcowsale');
+   Route::post('/addcowsale',[Salecontroller::class,'addcowsalestore'])->name('addcowsalestore');
+
+   //milk sale
+    Route::get('/milksale',[Salecontroller::class,'milksale'])->name('milksales');
+    Route::get('/addmilksale',[Salecontroller::class,'addmilksale'])->name('addmilksale');
+    Route::post('/addmilksale',[Salecontroller::class,'addmilksalestore'])->name('addmilksalestore');
 
 
 
-//staff
-Route::get('/employee',[employeecontroller::class,'employee'])->name('employee');
+   //milk collection 
+   Route::get('/collection',[collectioncontroller::class,'collection'])->name('collections');
+   Route::get('/addmilkcollection',[collectioncontroller::class,'addmilkcollection'])->name('addmilkcollection');
+   Route::post('/addmilkcollection',[collectioncontroller::class,'addmilkcollectionstore'])->name('addmilkcollectionstore');
+
+   //payment
+   Route::get('/payment',[paymentcontroller::class,'payment'])->name('payment');
+   Route::get('/addpayment',[paymentcontroller::class,'addpayment'])->name('addpayment');
+   Route::post('/addpayment',[paymentcontroller::class,'addpaymentstore'])->name('addpaymentstore');
+
+  //staff
+   Route::get('/employee',[employeecontroller::class,'employee'])->name('employee');
 
 
-//stock
-Route::get('/stock',[Stockcontroller::class,'stock'])->name('stock');
-Route::get('/addstock',[Stockcontroller::class,'addstock'])->name('addstocks');
-Route::post('/stockstore',[Stockcontroller::class,'stockstore'])->name('stockstores');
+   //stock
+   Route::get('/stock',[Stockcontroller::class,'stock'])->name('stock');
+   Route::get('/addstock',[Stockcontroller::class,'addstock'])->name('addstocks');  
+   Route::post('/stockstore',[Stockcontroller::class,'stockstore'])->name('stockstores');
+
+
+  
+  });    
+

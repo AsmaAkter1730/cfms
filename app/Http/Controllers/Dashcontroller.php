@@ -9,11 +9,13 @@ class Dashcontroller extends Controller
 {
     public function dash()
     {
+       
         return view('backend.main');
     }
 
     public function dashboard()
     {
+        
         $tasks=Todolist::paginate(5);
         return view('backend.layouts.dashboard.dashboard', compact('tasks'));
     }

@@ -58,6 +58,7 @@
       
      
       <td class="table-action">
+        
                              <a href="#"><button class="btn"><i class="glyphicon glyphicon-pencil"style="font-size:15px"></i></button></a>
                              <a href="#"><button class="btn"><i class="fa fa-trash"style="font-size:20px"></i></button></a>
      </td>
