@@ -6,7 +6,7 @@
 
 <div class="x_panel">
       <div class="x_title">
-                    <h2>Cow Information </h2>
+                    <h2>Feed plan for Cow </h2>
                     
                              <ul class="nav navbar-right panel_toolbox">
                                   <li>
@@ -35,6 +35,12 @@
 <div class="x_content">
                          <div class="">
                               <ul class="to_do">
+                              @if(session()->has('message'))
+                              <div>
+                              <span class="alert alert-primary">{{session()->get('message')}}</span>
+                              </div>
+                             
+                         @endif
                               <table class="table">
   <thead class="thead-light">
     <tr>
@@ -43,9 +49,9 @@
       <th style="width:10%;"scope="col">image</th>
       
       <th style="width:10%;"scope="col">Gender</th>
-      <th style="width:10%;"scope="col">Date of Birth</th>
-      <th style="width:10%;"scope="col">cowtype</th> 
-      <th style="width:10%;"scope="col">Status</th>
+      <th style="width:15%;"scope="col">Date of Birth</th>
+      
+      <th style="width:15%;"scope="col">Status</th>
       <th style="width:15%;"scope="col">Action</th>
     </tr>
   </thead>
@@ -61,13 +67,13 @@
          </td>
       <td>{{ $data->Gender}}</td>
       <td>{{ $data->date_of_birth}}</td>
-      <td>{{ $data->Cowtype->cow_type}}</td>
+      
       <td>{{ $data->status }}</td>
       
       <td class="table-action">
                           <a href="{{route('allcow.feedplans',$data->id)}}"><button type="button" class="btn btn-primary">view</button></a>
-                            <a href="#"><button class="btn"><i class="glyphicon glyphicon-pencil"style="font-size:15px"></i></button></a>
-                             <a href="#"><button class="btn"><i class="fa fa-trash"style="font-size:20px"></i></button></a>
+                           
+                            <a onclick="return confirm('Are you sure you want to delete this item?');" href="{{route('cows.detete',$data->id)}}"><button class="btn"><i class="fa fa-trash"style="font-size:20px"></i></button></a>
                         </td>
     </tr>
     @endforeach

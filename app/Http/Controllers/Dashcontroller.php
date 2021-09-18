@@ -28,6 +28,11 @@ class Dashcontroller extends Controller
          return redirect()->back();
     }
    
-    
+    public function delete($id)
+    {
+        // dd($id);
+      Todolist::destroy($id);
+       return redirect()->back()->with('message','task deleted successfully');
+    }
 
 }

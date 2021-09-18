@@ -6,7 +6,7 @@
 
 <div class="x_panel">
       <div class="x_title">
-      <h1 class="h2">Add Cow</h1>
+      <h1 class="h2">Add Milk Sale</h1>
                     
                              <ul class="nav navbar-right panel_toolbox">
                                   <li>
@@ -37,52 +37,32 @@
         
                  
                               <div class="container p-5">
-    <form class="row g-3 d-flex justify-content-center p-5 bg-light shadow border" action="{{route('addcowstore')}}" method="post" enctype="multipart/form-data">
+    <form class="row g-3 d-flex justify-content-center p-5 bg-light shadow border" action="{{route('milksales.update',$item->id)}}" method="post">
    
     @csrf
+    
+    @method('put')
+          
         <div class="col-md-6">
-            <label for="inputEmail4" class="form-label">Cow Number </label>
-            <input required type="text" class="form-control" name="cow_number" placeholder="Cow Number">
+            <label for="inputEmail4" class="form-label">Customer Name</label>
+            <input  value="{{$item->cutomer_name}}" type="text" class="form-control" name="cutomer_name" placeholder="Customer Name">
           </div>
-           
+          <div class="col-md-6">
+            <label for="inputEmail4" class="form-label">Date</label>
+            <input value="{{$item->date}}" type="date" class="form-control" id="inputEmail4" name="date">
+          </div>
+          
         <div class="col-md-6">
-           
-           <label class="form-label">Cow Type</label> 
-           <select class="form-control" name="cowtype_id" id="cowtype_id" placeholder="Cow Type" >
-
-           @foreach($addcows as $add)
-                 <option value="{{$add->id}}"> {{$add->cow_type}}</option>
-             @endforeach
-               </select>
-             </div>
+            <label for="inputEmail4" class="form-label">Liter</label>
+            <input value="{{$item->liter}}" type="text" class="form-control" name="liter" placeholder="liter">
+          </div>
         
           <div class="col-md-6">
-           
-           <label class="form-label">Select Status</label> 
-           <select class="form-control" name="status" >
-              
-               <option value="available">Availabe</option>
-               </select>
-             </div>
-         
+            <label for="inputEmail4" class="form-label">Priceper Liter</label>
+            <input value="{{$item->price_perliter}}"  type="text" class="form-control" name="price_perliter" placeholder="price per liter">
+          </div>  
         
-        <div class="col-md-6">
-           
-        <label class="form-label">Gender</label> 
-        <select class="form-control" name="Gender" >
-            <option value="male">Male</option>
-            <option value="female">female</option>
-            </select>
-          </div>
-
-          <div class="col-md-6">
-            <label for="inputEmail4" class="form-label">Date of Birth</label>
-            <input  required type="date" class="form-control" id="inputEmail4" name="date_of_birth">
-          </div>
-          <div class="col-md-6">
-            <label for="description" class="form-label" >Choose Image</label>
-            <input required type="file" class="form-control" name="image" placeholder="choose image" >
-          </div>
+       
 </div>
 
         <div class="col-12">

@@ -13,8 +13,14 @@ class logincontroller extends Controller
     }
     public function loginPost(Request $request)
     {
+
+        $request->validate([
+            'email' => 'required|email',
+            'password' => 'required|min:6'
+        ]);
    // dd($request->all());
         //2 token except and only
+
         $credentials=$request->except('_token');
            //dd($credentials);
         if(Auth::attempt($credentials))

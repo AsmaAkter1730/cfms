@@ -35,6 +35,14 @@
 <div class="x_content">
                          <div class="">
                               <ul class="to_do">
+
+
+                              @if(session()->has('message'))
+                              <div>
+                              <span class="alert alert-primary">{{session()->get('message')}}</span>
+                              </div>
+                             
+                         @endif
                               <table class="table">
   <thead class="thead-light">
     <tr>
@@ -65,8 +73,8 @@
       <td>{{ $data->status }}</td>
       
       <td class="table-action">
-                            <a href="#"><button class="btn"><i class="glyphicon glyphicon-pencil"style="font-size:15px"></i></button></a>
-                             <a href="#"><button class="btn"><i class="fa fa-trash"style="font-size:20px"></i></button></a>
+                            <a href="{{route('cows.edit',$data->id)}}"><button class="btn"><i class="glyphicon glyphicon-pencil"style="font-size:15px"></i></button></a>
+                             <a onclick="return confirm('Are you sure you want to delete this item?');" href="{{route('cows.detete',$data->id)}}"><button class="btn"><button class="btn"><i class="fa fa-trash"style="font-size:20px"></i></button></a>
                         </td>
     </tr>
     @endforeach

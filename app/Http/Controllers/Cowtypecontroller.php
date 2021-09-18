@@ -48,4 +48,34 @@ public function allcow($id)
  return view ('backend.layouts.cowtype.viewcow-type',compact('categories'));
 }
 
+
+public function delete($id)
+{
+    // dd($id);
+  Cowtype::destroy($id);
+   return redirect()->back()->with('message','Cow deleted successfully' );
+}
+public function edit($id)
+{
+    // dd($id);
+  
+    $Cows=Cowtype::find($id);
+$categories=Cowtype::all();
+   return view('backend.layouts.cowtype.edit-cowtype',compact('categories','Cows'));
+}
+
+public function update(Request $store, $id)
+
+{
+    $Cows=Cowtype::find($id);
+    $Cows->update([
+        //formname=>$variablename->(bladefile)name
+
+        'cow_type'=>$store->cow_type,   
+        'status'=>$store->status,
+        'color'=>$store->color
+   ]);
+   return redirect()->route('addcowtype');
+
+}
 }

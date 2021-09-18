@@ -37,6 +37,13 @@
                 <div class="x_content">
                          <div class="">
                               <ul class="to_do">
+
+                              @if(session()->has('message'))
+                              <div>
+                              <span class="alert alert-primary">{{session()->get('message')}}</span>
+                              </div>
+                             
+                         @endif
                               <table class="table">
   <thead class="thead-light">
     <tr>
@@ -59,8 +66,8 @@
    
      
       <td class="table-action">
-                             <a href="#"><button class="btn"><i class="glyphicon glyphicon-pencil"style="font-size:15px"></i></button></a>
-                             <a href="#"><button class="btn"><i class="fa fa-trash"style="font-size:20px"></i></button></a>
+                             <a href="{{route('vaccine_list.edit',$data->id)}}"><button class="btn"><i class="glyphicon glyphicon-pencil"style="font-size:15px"></i></button></a>
+                             <a onclick="return confirm('Are you sure you want to delete this item?');" href="{{route('vaccine_list.delete',$data->id)}}"><button class="btn"><i class="fa fa-trash"style="font-size:20px"></i></button></a>
      </td>
     </tr>
    

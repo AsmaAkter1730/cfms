@@ -35,38 +35,33 @@
         
                  
                               <div class="container p-5">
-    <form class="row g-3 d-flex justify-content-center p-5 bg-light shadow border" action="{{route('addcowsalestore')}}" method="post">
+    <form class="row g-3 d-flex justify-content-center p-5 bg-light shadow border" action="{{route('cowsales.update',$sale->id)}}" method="post">
    
     @csrf
+    @method('put')
         <div class="col-md-6">
             <label for="inputEmail4" class="form-label">Invoice No </label>
-            <input type="text" class="form-control" name="Invoice_no" placeholder="Invoice No.">
+            <input value="{{$sale->Invoice_no}}" type="text" class="form-control" name="Invoice_no" placeholder="Invoice No.">
           </div>
-          <!-- <div class="col-md-6">
-            <label for="inputEmail4" class="form-label">Cow Number</label>
-            <input type="text" class="form-control" name="cow_number" placeholder="Cow Number">
-            @foreach($cow_sales as $add)
-            <option value="{{$add->id}}"> {{$add->cow_number}}</option>
-             @endforeach
-          </div> -->
+         
 
           <div class="col-md-6">
     <label for="exampleFormControlSelect1">Cow Number</label>
     <select class="form-control" id="exampleFormControlSelect1"name="cow_number">
       
       @foreach($cow_sales as $add)
-      <option value="{{$add->id}}"> {{$add->cow_number}}</option>
+      <option value="{{$add->cow_number}}"> {{$add->cow_number}}</option>
       @endforeach
     </select>
   </div>
 
           <div class="col-md-6">
             <label for="inputEmail4" class="form-label"> Customer Name</label>
-            <input required type="text" class="form-control" name="cus_name"placeholder="Customer Name" id="inputEmail4">
+            <input required  value="{{$sale->cus_name}}"type="text" class="form-control" name="cus_name"placeholder="Customer Name" id="inputEmail4">
           </div>
           <div class="col-md-6">
           <label for="inputEmail4" class="form-label"> Customer Email</label>
-          <input  required type="email" class="form-control" id="inputEmail4" name="email" placeholder="Customer Email">
+          <input  required value="{{$sale->email}}" type="email" class="form-control" id="inputEmail4" name="email" placeholder="Customer Email">
         </div>
        
         <div class="col-md-6">
@@ -75,15 +70,15 @@
           </div>
           <div class="col-md-6">
             <label for="inputEmail4" class="form-label">Amount</label>
-            <input required type="text" class="form-control" name="amount" placeholder="Amount">
+            <input required value="{{$sale->amount}}" type="text" class="form-control" name="amount" placeholder="Amount">
           </div>
           <div class="col-md-6">
             <label for="inputEmail4" class="form-label">Date</label>
-            <input required type="date" class="form-control" id="inputEmail4" name="date">
+            <input required value="{{$sale->date}}" type="date" class="form-control" id="inputEmail4" name="date">
           </div>
         <div class="col-md-6">
           <label for="inputEmail4" class="form-label">Remarks</label>
-          <input required type="text" class="form-control" id="inputEmail4" name="remarks" placeholder="Remarks">
+          <input required value="{{$sale->remarks}}" type="text" class="form-control" id="inputEmail4" name="remarks" placeholder="Remarks">
         </div>
        
         

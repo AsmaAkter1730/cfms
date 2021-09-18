@@ -37,18 +37,19 @@
         
                  
                               <div class="container p-5">
-    <form class="row g-3 d-flex justify-content-center p-5 bg-light shadow border" action="{{route('addcowstore')}}" method="post" enctype="multipart/form-data">
+    <form class="row g-3 d-flex justify-content-center p-5 bg-light shadow border" action="{{route('collections.update',$collection->id)}}" method="post" enctype="multipart/form-data">
    
     @csrf
+    @method('put')
         <div class="col-md-6">
             <label for="inputEmail4" class="form-label">Cow Number </label>
-            <input required type="text" class="form-control" name="cow_number" placeholder="Cow Number">
+            <input required value="{{$cows->cow_number}}" type="text" class="form-control" name="cow_number" placeholder="Cow Number">
           </div>
            
         <div class="col-md-6">
            
            <label class="form-label">Cow Type</label> 
-           <select class="form-control" name="cowtype_id" id="cowtype_id" placeholder="Cow Type" >
+           <select class="form-control" value="{{$cows->cowtype_id}}" name="cowtype_id" id="cowtype_id" placeholder="Cow Type" >
 
            @foreach($addcows as $add)
                  <option value="{{$add->id}}"> {{$add->cow_type}}</option>
@@ -70,18 +71,19 @@
            
         <label class="form-label">Gender</label> 
         <select class="form-control" name="Gender" >
-            <option value="male">Male</option>
-            <option value="female">female</option>
+            <option value="male" @if($cows->Gender=='female') selected @endif >Male</option>
+            <option value="female" @if($cows->Gender=='female') selected @endif >female</option>
+        
             </select>
           </div>
 
           <div class="col-md-6">
             <label for="inputEmail4" class="form-label">Date of Birth</label>
-            <input  required type="date" class="form-control" id="inputEmail4" name="date_of_birth">
+            <input  required value="{{$cows->date_of_birth}}" type="date" class="form-control" id="inputEmail4" name="date_of_birth">
           </div>
           <div class="col-md-6">
             <label for="description" class="form-label" >Choose Image</label>
-            <input required type="file" class="form-control" name="image" placeholder="choose image" >
+            <input  value="{{$cows->image}}" type="file" class="form-control" name="image" placeholder="choose image" >
           </div>
 </div>
 

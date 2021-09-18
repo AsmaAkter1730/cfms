@@ -22,16 +22,13 @@ class informationcontroller extends Controller
    public function addcow()
    {
     $addcows = Cowtype::all();
-
        return view('backend.layouts.cowinfo.addcow',compact('addcows'));
    }
   //post
    public function addcowstore(Request $store)
    {
-
       //dd($store->all());
        //image
-
     $fileName='';
     if($store->hasFile('image'))
     {
@@ -51,7 +48,7 @@ class informationcontroller extends Controller
      //modelname::create([]);
       Addcow::create([
           //formname=>$variablename->(bladefile)name
-          'cowtype_id'=>$store->cowtype_id,
+    'cowtype_id'=>$store->cowtype_id,
        'cow_number'=>$store->cow_number,
        
        'Gender'=>$store->Gender,
@@ -61,6 +58,41 @@ class informationcontroller extends Controller
       ]);
       return redirect()->route('cows');
    }
+
+
+   public function deletes($id)
+   {
+       // dd($id);
+     Addcow::destroy($id);
+      return redirect()->back()->with('message','Cow deleted successfully' );
+   }
+   public function cow_edit($id)
+   {
+       // dd($id);
+       $addcows = Cowtype::all();
+       $cows=Addcow::find($id);
+     $categories=Addcow::all();
+      return view('backend.layouts.cowinfo.edit-cow',compact('categories','cows','addcows'));
+   }
+   
+   public function cow_update(Request $store, $id)
+   
+   {
+    $cows=Addcow::find($id);
+       $cows->update([
+           //formname=>$variablename->(bladefile)name
+           
+           'cow_number'=>$store->cow_number,
+           
+           'Gender'=>$store->Gender,
+           'date_of_birth'=>$store->date_of_birth,
+           'status'=>$store->status,
+           
+      ]);
+      return redirect()->route('cows');
+
+
+    }
 
 
    public function staff()
@@ -113,4 +145,37 @@ class informationcontroller extends Controller
        ]);
        return redirect()->route('staffs');
    }
+
+   public function delete($id)
+   {
+       // dd($id);
+      staff::destroy($id);
+      return redirect()->back()->with('message','staff deleted successfully' );
+   }
+
+   public function staff_edit($id)
+{
+    // dd($id);
+  
+    $staff=Staff::find($id);
+  $categories=Staff::all();
+   return view('backend.layouts.staffinfo.edit-staff',compact('categories','staff'));
+}
+
+public function staff_update(Request $store, $id)
+
+{
+    $staff=Staff::find($id);
+    $staff->update([
+        //formname=>$variablename->(bladefile)name
+        'staff_name'=>$store->staff_name,
+        'email'=>$store->email,
+        'Mobile'=>$store->Mobile,
+        'Designation'=>$store->Designation,
+        'Salary'=>$store->Salary,
+        'Address'=>$store->Address
+   ]);
+   return redirect()->route('staffs');
+
+}
 }

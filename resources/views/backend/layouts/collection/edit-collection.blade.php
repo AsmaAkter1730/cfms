@@ -37,33 +37,28 @@
         
                  
                               <div class="container p-5">
-    <form class="row g-3 d-flex justify-content-center p-5 bg-light shadow border" action="{{route('addmilkcollectionstore')}}" method="post">
+    <form class="row g-3 d-flex justify-content-center p-5 bg-light shadow border" action="{{route('collections.update',$collection->id)}}" method="post">
    
     @csrf
     
-        <!-- <div class="col-md-6">
-            <label for="inputEmail4" class="form-label">Cow Number </label>
-            <input type="text" class="form-control" name="cow_number" placeholder="Cow Number">
-            
-          </div> -->
-
+    @method('put')
           <div class="col-md-6">
     <label for="exampleFormControlSelect1">Cow Number</label>
     <select class="form-control" id="exampleFormControlSelect1"name="cow_number">
       
       @foreach($addmilk as $add)
-      <option value="{{$add->id}}"> {{$add->cow_number}}</option>
+      <option value="{{$add->cow_number}}"> {{$add->cow_number}}</option>
       @endforeach
     </select>
   </div>
           <div class="col-md-6">
             <label for="inputEmail4" class="form-label">Date</label>
-            <input required type="date" class="form-control" id="inputEmail4" name="date">
+            <input required  value="{{$collection->date}}" type="date" class="form-control" id="inputEmail4" name="date">
           </div>
           
         <div class="col-md-6">
             <label for="inputEmail4" class="form-label">Liter</label>
-            <input required type="number" class="form-control" name="liter" placeholder="liter">
+            <input required value="{{$collection->liter}}" type="number" class="form-control" name="liter" placeholder="liter">
           </div>
         
            

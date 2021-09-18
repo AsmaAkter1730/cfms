@@ -32,10 +32,10 @@
                             @csrf
 
                             <div class="form-group">
-                                <input type="email" name="email" class="form-control" placeholder="Email">
+                                <input required type="email" name="email" class="form-control" placeholder="Email">
                             </div>
                             <div class="form-group">
-                                <input id="password-field"name="password" type="password" class="form-control" placeholder="Password">
+                                <input  required id="password-field"name="password" type="password" class="form-control" placeholder="Password">
                                 <span toggle="#password-field"
                                     class="fa fa-fw fa-eye field-icon toggle-password"></span>
                             </div>

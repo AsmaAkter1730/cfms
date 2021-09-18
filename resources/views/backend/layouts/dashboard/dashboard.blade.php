@@ -168,6 +168,13 @@
                     </div>
               
                          <div class="">
+
+                         @if(session()->has('message'))
+                              <div>
+                              <span class="alert alert-primary">{{session()->get('message')}}</span>
+                              </div>
+                             
+                         @endif
                          <table class="table">
                             <thead class="thead-light">
                                 <tr>
@@ -187,7 +194,7 @@
                                     
                                     <td>
                                        
-                                    <a href="#"><button class="btn"><i class="fa fa-trash"style="font-size:20px"></i></button></a>
+                                    <a onclick="return confirm('Are you sure you want to delete this item?');" href="{{route('dashboards.detete.task',$task->id)}}"><button class="btn"><i class="fa fa-trash"style="font-size:20px"></i></button></a>
                                             
                                         </a>
                                     </td>

@@ -50,7 +50,39 @@ class Monitoringcontroller extends Controller
       return redirect()->route('vaccines');
     }
 
+    public function delete($id)
+    {
+        // dd($id);
+        Vaccine_monitoring::destroy($id);
+       return redirect()->back()->with('message','info deleted successfully' );
+    }
 
+    public function vaccine_edit($id)
+{
+    // dd($id);
+    $Cows = Addcow::all();
+    $Vaccine_monitoring= Vaccine_list::all();
+    $vaccine=Vaccine_monitoring::find($id);
+  $categories=Vaccine_monitoring::all();
+   return view('backend.layouts.vaccineinfo.edit-vaccine',compact('categories','vaccine','Vaccine_monitoring','Cows'));
+}
+
+public function vaccine_update(Request $store, $id)
+
+{
+  $vaccine=Vaccine_monitoring::find($id);
+  $vaccine->update([
+        //formname=>$variablename->(bladefile)name
+        'vaccine_id'=>$store->vaccine_name,
+        'cow_number'=>$store->cow_number,
+        'vaccine_date'=>$store->vaccine_date,
+        'Remarks'=>$store->Remarks
+   ]);
+   return redirect()->route('vaccines');
+
+}
+
+    
 
 ///vaccine List
 
@@ -84,6 +116,39 @@ public function addvaccine_namestore(Request $store)
   
   return redirect()->route('vaccine_list');
 }
+
+public function vaccine_list_delete($id)
+{
+    // dd($id);
+  Vaccine_list::destroy($id);
+   return redirect()->back()->with('message','info deleted successfully' );
+}
+
+
+public function vaccine_list_edit($id)
+{
+    // dd($id);
+    
+    $list=Vaccine_list::find($id);
+     $categories=Vaccine_list::all();
+      return view('backend.layouts.vaccineinfo.edit-vaccinelist',compact('categories','list'));
+}
+
+public function vaccine_list_update(Request $store, $id)
+   
+{
+ $list=Vaccine_list::find($id);
+    $list->update([
+        //formname=>$variablename->(bladefile)name
+        'vaccine_name'=>$store->vaccine_name,
+        'purchase_date'=>$store->purchase_date,
+        'expired_date'=>$store->expired_date
+   ]);
+   return redirect()->route('vaccine_list');
+
+
+ }
+
 
 
 
@@ -136,6 +201,43 @@ public function addvaccine_namestore(Request $store)
     return redirect()->route('feeds');
     }
 
+    public function feed_delete($id)
+    {
+        // dd($id);
+      Feed_monitoring::destroy($id);
+       return redirect()->back()->with('message','info deleted successfully' );
+    }
+    public function feed_edit($id)
+    {
+        // dd($id);
+        
+        $feed_monitoring = Feed_item::all();
+   
+        $cows=Addcow::all();
+        $item=Feed_monitoring::find($id);
+         $categories=Feed_monitoring::all();
+          return view('backend.layouts.feedinfo.edit-feed',compact('categories','item','cows','feed_monitoring'));
+    }
+    
+    public function feed_update(Request $store, $id)
+       
+    {
+     $item=Feed_monitoring::find($id);
+        $item->update([
+            //formname=>$variablename->(bladefile)name
+            'feed_id'=>$store->Feed_item,
+            'cow_number'=>$store->cow_number,
+            'Remarks'=>$store->Remarks,
+            'date'=>$store->date,
+           
+            'Quantity'=>$store->Quantity,
+            'Feed_time'=>$store->Feed_time
+       ]);
+       return redirect()->route('feeds');
+    
+    
+     }
+
 
 
 
@@ -158,6 +260,7 @@ public function addfeed_item() // form
    
 
 
+
     public function addfeed_itemstore(Request $store) // form post
     {
         //dd($store->all());
@@ -171,6 +274,37 @@ public function addfeed_item() // form
     return redirect()->route('feed_items');
     }
 
+    public function feed_item_delete($id)
+    {
+        // dd($id);
+       feed_item::destroy($id);
+       return redirect()->back()->with('message','info deleted successfully' );
+    }
+
+
+    public function feed_item_edit($id)
+{
+    // dd($id);
+    
+    $item=Feed_item::find($id);
+     $categories=Feed_item::all();
+      return view('backend.layouts.feedinfo.edit-feeditem',compact('categories','item'));
+}
+
+public function feed_item_update(Request $store, $id)
+   
+{
+ $item=Feed_item::find($id);
+    $item->update([
+        //formname=>$variablename->(bladefile)name
+        'Feed_item'=>$store->Feed_item,
+    'description'=>$store->description,
+    'status'=>$store->status
+   ]);
+   return redirect()->route('feed_items');
+
+
+ }
 
 
 }

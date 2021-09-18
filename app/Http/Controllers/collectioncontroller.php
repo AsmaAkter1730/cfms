@@ -32,6 +32,12 @@ class collectioncontroller extends Controller
     public function addmilkcollectionstore(Request $store)
     {
        // dd($store->all());
+       $store->validate([
+        'cow_number' => 'required|min:1',
+        'liter'=>'required'
+
+    ]);
+
         Milk_collection::create([
             'cow_number'=>$store->cow_number,
             'date'=>$store->date,
@@ -50,4 +56,35 @@ class collectioncontroller extends Controller
        
         return redirect()->route('collections');
     }
+    public function delete($id)
+    {
+        // dd($id);
+      Milk_collection::destroy($id);
+       return redirect()->back()->with('message','info.deleted successfully' );
+    }
+    public function edit($id)
+{
+    // dd($id);
+    $addmilk=Addcow::all();
+    
+    $collection=Milk_collection::find($id);
+     $categories=Milk_collection::all();
+      return view('backend.layouts.collection.edit-collection',compact('categories','collection','addmilk'));
+}
+
+public function update(Request $store, $id)
+   
+{
+    $collection=Milk_collection::find($id);
+    $collection->update([
+        //formname=>$variablename->(bladefile)name
+        'cow_number'=>$store->cow_number,
+        'date'=>$store->date,
+        'liter'=>$store->liter,
+   ]);
+   return redirect()->route('collections');
+
+
+ }
+
 }

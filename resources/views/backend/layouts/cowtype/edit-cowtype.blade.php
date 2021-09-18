@@ -6,7 +6,7 @@
 
 <div class="x_panel">
       <div class="x_title">
-      <h1 class="h2">Add Milk Collection</h1>
+      <h1 class="h2">Update Cow Type</h1>
                     
                              <ul class="nav navbar-right panel_toolbox">
                                   <li>
@@ -14,9 +14,7 @@
                                   </li>
                                   
                                    <li class="dropdown">
-                                  
-                                  
-                                     
+                                
                                      <div class="dropdown-menu" aria-labelledby="dropdownMenuButton"> </div>
 
                                     </li>
@@ -37,38 +35,29 @@
         
                  
                               <div class="container p-5">
-    <form class="row g-3 d-flex justify-content-center p-5 bg-light shadow border" action="{{route('addmilkcollectionstore')}}" method="post">
-   
-    @csrf
-    
-        <!-- <div class="col-md-6">
-            <label for="inputEmail4" class="form-label">Cow Number </label>
-            <input type="text" class="form-control" name="cow_number" placeholder="Cow Number">
-            
-          </div> -->
+    <form class="row g-3 d-flex justify-content-center p-5 bg-light shadow border" action="{{route('addcowtype.update',$Cows->id)}}" method="post">
+
+  @csrf
+  @method('put')
 
           <div class="col-md-6">
-    <label for="exampleFormControlSelect1">Cow Number</label>
-    <select class="form-control" id="exampleFormControlSelect1"name="cow_number">
-      
-      @foreach($addmilk as $add)
-      <option value="{{$add->id}}"> {{$add->cow_number}}</option>
-      @endforeach
-    </select>
-  </div>
-          <div class="col-md-6">
-            <label for="inputEmail4" class="form-label">Date</label>
-            <input required type="date" class="form-control" id="inputEmail4" name="date">
+            <label for="inputEmail4" class="form-label">Cow Type</label>
+            <input value="{{$Cows->cow_type}}" type="text" class="form-control" name="cow_type" id="cow_type" placeholder="Cow Type">
           </div>
           
-        <div class="col-md-6">
-            <label for="inputEmail4" class="form-label">Liter</label>
-            <input required type="number" class="form-control" name="liter" placeholder="liter">
+          <div class="col-md-6">
+            <label for="inputEmail4" class="form-label">Color</label>
+            <input value="{{$Cows->color}}" type="text" class="form-control" name="color" id="color" placeholder="Color">
           </div>
         
-           
-        
-       
+
+          <div class="col-md-6">
+              <label class="form-label">Select Status</label> 
+                 <select   class="form-control" name="status" >
+                   <option value="sold" @if($Cows->status=='available') selected @endif >sold</option>
+                    <option  value="available" @if($Cows->status=='available') selected @endif >Availabe</option>
+                 </select>
+             </div>
 </div>
 
         <div class="col-12">
