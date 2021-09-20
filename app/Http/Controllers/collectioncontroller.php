@@ -23,7 +23,7 @@ class collectioncontroller extends Controller
 
     public function addmilkcollection()
     {
-        $addmilk=Addcow::all();
+        $addmilk=Addcow::where('status','available')->get();
         // dd($addmilk);
         return view('backend.layouts.collection.addmilkcollection',compact('addmilk'));
     }

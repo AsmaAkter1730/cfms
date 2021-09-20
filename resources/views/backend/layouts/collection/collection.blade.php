@@ -20,7 +20,7 @@
                                         <a class="close-link"><i class="fa fa-close"></i></a>
                                     </li>
                              </ul>
-                             <input class="form-control form-control-dark w-100" type="text" placeholder="Search" aria-label="Search">
+                             
                                          <div class="clearfix"></div>
                 </div>
 

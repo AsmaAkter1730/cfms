@@ -12,7 +12,7 @@ use App\Http\Controllers\collectioncontroller;
 use App\Http\Controllers\Stockcontroller;
 use App\Http\Controllers\Cowtypecontroller;
  use App\Http\Controllers\ViewcowController;
-
+ use App\Http\Controllers\SearchController;
 /*
 /*
 |--------------------------------------------------------------------------
@@ -67,7 +67,7 @@ Route::group(['prefix'=>'admin','middleware'=>'auth'],function(){
     Route::put('/staff/update/{id}',[informationcontroller::class,'staff_update'])->name('staffs.update');
     Route::get('/addstaff',[informationcontroller::class,'addstaff'])->name('addstaff');
     Route::post('/addstaff',[informationcontroller::class,'addstaffstore'])->name('addstaffstore');
-
+    Route::get('/search',[Searchcontroller::class,'staff_search'])->name('staff.search');
       //cow type
 
      Route::get('/addcowType',[Cowtypecontroller::class,'addcow_type'])->name('addcowtype');
@@ -135,7 +135,7 @@ Route::group(['prefix'=>'admin','middleware'=>'auth'],function(){
   Route::put('/cowsale/update/{id}',[Salecontroller::class,'cowsale_update'])->name('cowsales.update');
   Route::get('/addcowsale',[Salecontroller::class,'addcowsale'])->name('addcowsale');
   Route::post('/addcowsale',[Salecontroller::class,'addcowsalestore'])->name('addcowsalestore');
-
+  Route::get('/search/cowsale',[Searchcontroller::class,'cow_search'])->name('cow.search');
   //milk sale
    Route::get('/milksale',[Salecontroller::class,'milksale'])->name('milksales');
    Route::get('/milksale/delete/{id}',[Salecontroller::class,'milksale_delete'])->name('milksales.delete');
@@ -143,10 +143,11 @@ Route::group(['prefix'=>'admin','middleware'=>'auth'],function(){
    Route::put('/milksale/update/{id}',[Salecontroller::class,'milksale_update'])->name('milksales.update');
    Route::get('/addmilksale',[Salecontroller::class,'addmilksale'])->name('addmilksale');
    Route::post('/addmilksale',[Salecontroller::class,'addmilksalestore'])->name('addmilksalestore');
-
+   Route::get('/milksale/search',[Searchcontroller::class,'milk_search'])->name('milk.search');
     //payment
     Route::get('/payment',[paymentcontroller::class,'payment'])->name('payment');
     Route::get('/addpayment',[paymentcontroller::class,'addpayment'])->name('addpayment');
     Route::post('/addpayment',[paymentcontroller::class,'addpaymentstore'])->name('addpaymentstore');
+    Route::get('/payment/delete/{id}',[paymentcontroller::class,'payment_delete'])->name('payment.delete');
   });    
 

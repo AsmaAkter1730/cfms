@@ -37,7 +37,7 @@
         
                  
                               <div class="container p-5">
-    <form class="row g-3 d-flex justify-content-center p-5 bg-light shadow border" action="{{route('collections.update',$collection->id)}}" method="post" enctype="multipart/form-data">
+    <form class="row g-3 d-flex justify-content-center p-5 bg-light shadow border" action="{{route('cows.update',$cows->id)}}" method="post" enctype="multipart/form-data">
    
     @csrf
     @method('put')

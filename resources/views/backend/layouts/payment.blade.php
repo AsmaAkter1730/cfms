@@ -17,7 +17,7 @@
                                    <li class="dropdown">
                                   
                                    <li><a href="{{route('addpayment')}}" data-hover="add">  
-	                                 <button type="button" class="btn btn-outline-success">Add list</button></a></li> 
+	                                 <button type="button" class="btn btn-outline-success">Add payment list</button></a></li> 
                                      
                                      <div class="dropdown-menu" aria-labelledby="dropdownMenuButton"> </div>
 
@@ -58,8 +58,8 @@
       <td>{{ $data->due_amount}}  BDT</td>
       <td>{{ $data->date}}</td>
       <td class="table-action">
-      <a href="#"><button class="btn"><i class="glyphicon glyphicon-pencil"style="font-size:15px"></i></button></a>
-                             <a href="#"><button class="btn"><i class="fa fa-trash"style="font-size:20px"></i></button></a>
+      
+      <a onclick="return confirm('Are you sure you want to delete this item?');" href="{{route('payment.delete',$data->id)}}"><button class="btn"><i class="fa fa-trash"style="font-size:20px"></i></button></a>
          
      </td>
     </tr>

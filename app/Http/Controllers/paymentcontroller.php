@@ -34,4 +34,12 @@ class paymentcontroller extends Controller
         ]);
         return redirect()->route('payment');
     }
+
+    public function payment_delete($id)
+    {
+        // dd($id);
+      Payment::destroy($id);
+       return redirect()->back()->with('message','info.deleted successfully' );
+    }
+
 }

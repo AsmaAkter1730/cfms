@@ -30,7 +30,7 @@ class Monitoringcontroller extends Controller
     public function addvaccine()
 
     {
-        $Cows = Addcow::all();
+        $Cows = Addcow::where('status','available')->get();
         $Vaccine_monitoring= Vaccine_list::all();
         return view('backend.layouts.vaccineinfo.addvaccine',compact('Cows','Vaccine_monitoring'));
     }
@@ -176,7 +176,8 @@ public function vaccine_list_update(Request $store, $id)
 
     public function addfeed()
     {
-      $cows=Addcow::all();
+      
+      $cows=Addcow::where('status','available')->get();
       $feed_monitoring = Feed_item::all();
       //  dd($feed_monitoring->all());
         return view('backend.layouts.feedinfo.addfeed',compact('feed_monitoring','cows'));
