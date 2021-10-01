@@ -15,10 +15,12 @@ class CreateMilkSalesTable extends Migration
     {
         Schema::create('milk_sales', function (Blueprint $table) {
             $table->id();
-            $table->string('cutomer_name');
-            $table->string('date');
+            $table->foreignId('customer_id')->constrained()->restrictOnDelete();
+            $table->integer('paidamount');
+            $table->integer('pay_amount');
             $table->string('liter');
             $table->string('price_perliter');
+            $table->string('date');
             $table->timestamps();
         });
     }

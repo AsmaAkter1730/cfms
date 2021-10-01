@@ -6,7 +6,7 @@
 
 <div class="x_panel">
       <div class="x_title">
-      <h1 class="h2">Add payment</h1>
+      <h1 class="h2">Add Customer</h1>
                     
                              <ul class="nav navbar-right panel_toolbox">
                                   <li>
@@ -14,9 +14,7 @@
                                   </li>
                                   
                                    <li class="dropdown">
-                                  
-                                  
-                                     
+                                
                                      <div class="dropdown-menu" aria-labelledby="dropdownMenuButton"> </div>
 
                                     </li>
@@ -37,36 +35,30 @@
         
                  
                               <div class="container p-5">
-    <form class="row g-3 d-flex justify-content-center p-5 bg-light shadow border" action="{{route('addpaymentstore')}}" method="post">
-   
-    @csrf
-        
-          
-          
+    <form class="row g-3 d-flex justify-content-center p-5 bg-light shadow border" action="{{route('addcustomerstore')}}" method="post"enctype="multipart/form-data">
+
+  @csrf
         <div class="col-md-6">
-            <label for="inputEmail4" class="form-label">Total Amount</label>
-            <input type="text" class="form-control" name="Total_amount" placeholder="Total Amount">
+            <label for="inputEmail4" class="form-label"> customer Name </label>
+            <input required type="text" class="form-control" name="cus_name" placeholder="cus_name">
           </div>
-        
+          
           <div class="col-md-6">
-            <label for="inputEmail4" class="form-label">Paid Amount </label>
-            <input type="text" class="form-control" name="Paid_amount" placeholder="Paid Amount">
-          </div>
-          
-          
+          <label for="inputEmail4" class="form-label">Email</label>
+          <input required type="email" class="form-control" id="inputEmail4" name="email" placeholder="Email">
+        </div>
+       
         <div class="col-md-6">
-            <label for="inputEmail4" class="form-label">Due Amount</label>
-            <input type="text" class="form-control" name="due_amount" placeholder="Due Amount">
+            <label for="inputEmail4" class="form-label"> Customer Mobile</label>
+            <input required type="tel" class="form-control" name="cus_mobile"placeholder="cus_mobile" id="inputEmail4">
           </div>
-          <div class="col-md-6">
-            <label for="inputEmail4" class="form-label">Date </label>
-            <input type="date" class="form-control" id="inputEmail4" name="date">
-          </div>
-          
-       
+        
+        <div class="col-md-6">
+          <label for="inputEmail4" class="form-label">Address</label>
+          <input  required type="text" class="form-control" id="inputEmail4" name="address" placeholder="address">
+        </div>
         
         
-       
 </div>
 
         <div class="col-12">

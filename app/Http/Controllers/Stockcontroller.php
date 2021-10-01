@@ -8,7 +8,7 @@ class Stockcontroller extends Controller
 {
    public function stock()
    {
-           $milkstocks =Milkstock ::paginate(6);
+           $milkstocks =Milkstock ::paginate(10);
        return view('backend.layouts.stock.stock',compact('milkstocks'));
    }
 

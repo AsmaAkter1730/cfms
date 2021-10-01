@@ -20,11 +20,7 @@
                                         <a class="close-link"><i class="fa fa-close"></i></a>
                                     </li>
                              </ul>
-                             <form action="{{route('milk.search')}}" method="get">
-                               
-                               <input class="form-control form-control-dark w-100" type="search" name="search"placeholder="Search" aria-label="Search"> 
-                               
-                               </form>
+                           
                                          <div class="clearfix"></div>
                 </div>
 
@@ -43,13 +39,19 @@
                               <table class="table">
   <thead class="thead-light">
     <tr>
-      <th style="width:10%;"scope="col">Milk_Sale ID</th>
+      <th style="width:5%;"scope="col">Milk_Sale ID</th>
       <th style="width:10%;"scope="col">Customer Name</th>
-      <th style="width:10%;"scope="col">Liter</th>
-      <th style="width:10%;"scope="col">Price per Liter</th>
+      
+      
+      <th style="width:5%;"scope="col">Litre</th>
+      <th style="width:10%;"scope="col">Unit Price/ Litre</th>
      
+      <th style="width:10%;"scope="col">Pay Amount</th>
+      <th style="width:10%;"scope="col">paid Amount</th>
+      <th style="width:10%;"scope="col">Due Amount</th>
       <th style="width:10%;"scope="col">Date</th>
-      <th style="width:10%;"scope="col">Total</th>
+     
+      
       <th style="width:20%;"scope="col">Action</th>
     </tr>
   </thead>
@@ -58,23 +60,31 @@
 
   @foreach($milk_sales as  $data)
 
-  @php 
-        $Total=$data->liter*$data->price_perliter;
-       
-    @endphp
+  @php
+  $Due_amount=$data->pay_amount-$data->paidamount;
+ @endphp
   <tbody>
     <tr>
       <th scope="row">{{ $data->id}}</th>
-      <td>{{ $data->cutomer_name}}</td>
+      <td>{{ $data->customer->cus_name}}</td>
+     
       <td> {{ $data->liter}}</td>
       <td>{{ $data->price_perliter}}</td>
+      
+      <td>{{ $data->pay_amount}}</td>
+      <td>{{ $data->paidamount}}</td>
+      <td>{{ $Due_amount}}</td>
       <td>{{ $data->date}}</td>
-      <td>{{$Total }}</td>
+      
+    
+     
+      
       
       <td class="table-action">
+                             <a class="btn btn-info" href="{{route('milksale.view' ,$data['id'])}}"> View</a>
                              <a href="{{route('milksales.edit',$data->id)}}"><button class="btn"><i class="glyphicon glyphicon-pencil"style="font-size:15px"></i></button></a>
                              <a onclick="return confirm('Are you sure you want to delete this item?');" href="{{route('milksales.delete',$data->id)}}"><button class="btn"><i class="fa fa-trash"style="font-size:20px"></i></button></a>
-                            <a href="#"><button class="btn"><i class="fa fa-print"style="font-size:24px"></i></button></a>
+                           
                         </td>
       
     </tr>

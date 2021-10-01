@@ -16,4 +16,8 @@ class Milk_sale extends Model
 
         return $this->belongsto(Milk_collection::class);
     }
+    public function customer(){
+        return $this->belongsTo(Customer::class,'customer_id','id');
+    }
+  
 }

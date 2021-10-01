@@ -16,6 +16,9 @@ class Cow_sale extends Model
 
         return $this->belongsto(Addcow::class);
     }
+    public function customer(){
+        return $this->belongsTo(Customer::class,'customer_id','id');
+    }
 }
 
 

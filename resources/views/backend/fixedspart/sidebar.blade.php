@@ -13,6 +13,7 @@
             <li><a><i class="fa fa-edit"></i> Informations <span class="fa fa-chevron-down"></span></a>
                 <ul class="nav child_menu">
                    <li><a href="{{route('staffs')}}">Staff</a></li>
+                   
                    <li><a href="{{route('cows')}}">Cow</a></li>
                    
                 </ul>
@@ -46,6 +47,7 @@
                 <li><a href="{{route('collections')}}"></i><i class="fa fa-plus-square"></i>  Milk Collection </a></li>
                 
                 <li><a href="{{route('stock')}}"></i><i class="fa fa-hourglass"></i> Stock</a></li>
+                <li><a href="{{route('customers')}}"></i><i class="fa fa-user"></i> customer</a></li>
 
                 <li><a><i class="fa fa-shopping-cart"></i> Sales<span class="fa fa-chevron-down"></span></a>
                       <ul class="nav child_menu">
@@ -57,8 +59,6 @@
                
 
                 
-                <li><a href="{{route('payment')}}"></i><i class="fa fa-calculator"></i>  Payment</a></li>
-
               
 
             </div>

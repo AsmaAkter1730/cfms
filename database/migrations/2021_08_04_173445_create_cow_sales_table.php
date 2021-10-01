@@ -15,11 +15,9 @@ class CreateCowSalesTable extends Migration
     {
         Schema::create('cow_sales', function (Blueprint $table) {
             $table->id();
-            $table->string('Invoice_no');
             $table->integer('cow_number');
-            $table->string('cus_name');
-            $table->string('email');
-            $table->string('cus_mobile');
+            $table->foreignId('customer_id')->constrained()->restrictOnDelete();
+            $table->integer('paidamount');
             $table->string('amount');
             $table->string('date');
             $table->string('remarks');

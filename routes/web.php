@@ -6,13 +6,16 @@ use App\Http\Controllers\Homepagecontroller;
 use App\Http\Controllers\logincontroller;
 use App\Http\Controllers\informationcontroller;
 use App\Http\Controllers\Monitoringcontroller;
-use App\Http\Controllers\paymentcontroller;
 use App\Http\Controllers\Salecontroller;
 use App\Http\Controllers\collectioncontroller;
 use App\Http\Controllers\Stockcontroller;
 use App\Http\Controllers\Cowtypecontroller;
  use App\Http\Controllers\ViewcowController;
  use App\Http\Controllers\SearchController;
+ use App\Http\Controllers\CustomerController;
+ 
+    
+
 /*
 /*
 |--------------------------------------------------------------------------
@@ -35,12 +38,11 @@ Route::get('/',[Homepagecontroller::class,'homepage'])->name('homepages');
 
 Route::get('/admin/login',[logincontroller::class,'login'])->name('logins');
 Route::post('/admin/login/post',[logincontroller::class,'loginPost'])->name('admin.login.post');
+
 Route::group(['prefix'=>'admin','middleware'=>'auth'],function(){
  
-
-
   //logout
-  Route::get('/logout',[logincontroller::class,'logout'])->name('logout');
+  Route::get('/admin/logout',[logincontroller::class,'logout'])->name('logout');
        
   
      //information
@@ -68,7 +70,14 @@ Route::group(['prefix'=>'admin','middleware'=>'auth'],function(){
     Route::get('/addstaff',[informationcontroller::class,'addstaff'])->name('addstaff');
     Route::post('/addstaff',[informationcontroller::class,'addstaffstore'])->name('addstaffstore');
     Route::get('/search',[Searchcontroller::class,'staff_search'])->name('staff.search');
-      //cow type
+
+
+   //customer
+   Route::get('/customer',[Customercontroller::class,'customer'])->name('customers');
+   Route::get('/addcustomer',[Customercontroller::class,'addcustomer'])->name('addcustomer');
+   Route::post('/addcustomerstore',[Customercontroller::class,'addcustomerstore'])->name('addcustomerstore'); 
+   Route::get('/customer/delete/{id}',[Customercontroller::class,'delete'])->name('customer.delete');
+   //cow type
 
      Route::get('/addcowType',[Cowtypecontroller::class,'addcow_type'])->name('addcowtype');
      Route::get('/addcowType/delete/{id}',[Cowtypecontroller::class,'delete'])->name('addcowtype.delete');
@@ -134,8 +143,8 @@ Route::group(['prefix'=>'admin','middleware'=>'auth'],function(){
   Route::get('/cowsale/edit/{id}',[Salecontroller::class,'cowsale_edit'])->name('cowsales.edit');
   Route::put('/cowsale/update/{id}',[Salecontroller::class,'cowsale_update'])->name('cowsales.update');
   Route::get('/addcowsale',[Salecontroller::class,'addcowsale'])->name('addcowsale');
-  Route::post('/addcowsale',[Salecontroller::class,'addcowsalestore'])->name('addcowsalestore');
-  Route::get('/search/cowsale',[Searchcontroller::class,'cow_search'])->name('cow.search');
+  Route::post('/addcowsalestore',[Salecontroller::class,'addcowsalestore'])->name('addcowsalestore');
+  Route::get('/cowsale/view/{id}', [Searchcontroller::class, 'view_cowsale'])->name('cowsale.view'); 
   //milk sale
    Route::get('/milksale',[Salecontroller::class,'milksale'])->name('milksales');
    Route::get('/milksale/delete/{id}',[Salecontroller::class,'milksale_delete'])->name('milksales.delete');
@@ -143,11 +152,7 @@ Route::group(['prefix'=>'admin','middleware'=>'auth'],function(){
    Route::put('/milksale/update/{id}',[Salecontroller::class,'milksale_update'])->name('milksales.update');
    Route::get('/addmilksale',[Salecontroller::class,'addmilksale'])->name('addmilksale');
    Route::post('/addmilksale',[Salecontroller::class,'addmilksalestore'])->name('addmilksalestore');
-   Route::get('/milksale/search',[Searchcontroller::class,'milk_search'])->name('milk.search');
-    //payment
-    Route::get('/payment',[paymentcontroller::class,'payment'])->name('payment');
-    Route::get('/addpayment',[paymentcontroller::class,'addpayment'])->name('addpayment');
-    Route::post('/addpayment',[paymentcontroller::class,'addpaymentstore'])->name('addpaymentstore');
-    Route::get('/payment/delete/{id}',[paymentcontroller::class,'payment_delete'])->name('payment.delete');
+   Route::get('/milksale/view/{id}', [Searchcontroller::class, 'view_milksale'])->name('milksale.view'); 
+   
   });    
 

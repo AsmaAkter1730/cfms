@@ -20,11 +20,7 @@
                                         <a class="close-link"><i class="fa fa-close"></i></a>
                                     </li>
                              </ul>
-                             <form action="{{route('cow.search')}}" method="get">
-                               
-                               <input class="form-control form-control-dark w-100" type="search" name="search"placeholder="Search" aria-label="Search"> 
-                               
-                               </form>
+                            
                                          <div class="clearfix"></div>
                 </div>
 
@@ -47,11 +43,12 @@
       <th style="width:10%;"scope="col">Cow_Sale ID</th>
       <th style="width:10%;"scope="col">Cow no.</th>
       <th style="width:10%;"scope="col">Customer Name</th>
-      <th style="width:10%;"scope="col">Email</th>
-      <th style="width:10%;"scope="col">customer Mobile</th>
       
       
-      <th style="width:10%;"scope="col">Amount</th>
+      
+      <th style="width:10%;"scope="col">Total Amount</th>
+      <th style="width:10%;"scope="col"> paidAmount</th>
+      <th style="width:10%;"scope="col"> Due Amount</th>
       <th style="width:10%;"scope="col">Date</th>
       <th style="width:10%;"scope="col">Remarks</th>
       
@@ -60,15 +57,18 @@
   </thead>
 
   @foreach($cow_sales as  $data)
+  @php
+  $Due=$data->amount-$data->paidamount;
+ @endphp
   <tbody>
     <tr>
-      <th scope="row">{{ $data->Invoice_no}}</th>
+      <th scope="row">{{ $data->id}}</th>
       <td>{{ $data->cow_number}}</td> 
-      <td>{{ $data->cus_name}}</td>
-      <td>{{ $data->email}}</td>
-
-      <td> {{ $data->cus_mobile}}</td>
+      <td>{{ $data->customer->cus_name}}</td>
+     
       <td>{{ $data->amount}}</td>
+      <td>{{ $data->paidamount}}</td>
+      <td>{{ $Due}}</td>
       <td>{{ $data->date}}</td>
     
       
@@ -77,9 +77,10 @@
       
       
       <td class="table-action">
+                               <a class="btn btn-info" href="{{route('cowsale.view' ,$data['id'])}}"> View</a>
                                <a href="{{route('cowsales.edit',$data->id)}}"><button class="btn"><i class="glyphicon glyphicon-pencil"style="font-size:15px"></i></button></a>
                                <a onclick="return confirm('Are you sure you want to delete this item?');" href="{{route('cowsales.delete',$data->id)}}"><button class="btn"><i class="fa fa-trash"style="font-size:20px"></i></button></a>
-                                <a href="#"><button class="btn"><i class="fa fa-print"style="font-size:24px"></i></button></a>
+                               
                         </td>
       
     </tr>

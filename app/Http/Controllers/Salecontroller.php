@@ -6,6 +6,7 @@ use App\Models\Cow_sale;
 use App\Models\Addcow;
 use App\Models\Milk_collection;
 use App\Models\Milkstock;
+use App\Models\Customer;
 use Illuminate\Http\Request;
 
 class Salecontroller extends Controller
@@ -26,31 +27,26 @@ class Salecontroller extends Controller
 
        // $cow_sales = Addcow::all();
         $cow_sales = Addcow::where('status','available')->get();
-       return view('backend.layouts.cowsale.addcowsale',compact('cow_sales'));
+        $customer = Customer::all();
+       return view('backend.layouts.cowsale.addcowsale',compact('cow_sales','customer'));
 
     }
     public function addcowsalestore(Request $store)
     {
 
-        $store->validate([
-            'Invoice_no' => 'required',
-            'cus_name' => 'required',
-            'email' => 'required|email',
-            
-
-        ]);
-       // dd($store->all());
+        if($store->amount > $store->paidamount){
+       //dd($store->all());
         Cow_sale::create([
-        'Invoice_no'=>$store->Invoice_no,
+       
         'cow_number'=>$store->cow_number,
-        'cus_name'=>$store->cus_name,
-        'email'=>$store->email,
-        'cus_mobile'=>$store->cus_mobile,
+        'customer_id'=>$store->customer_id,
+        'paidamount'=>$store->paidamount,
         'amount'=>$store->amount,
         'date'=>$store->date,
         'remarks'=>$store->remarks
 
         ]);
+  
 
 
       //updatecow sale sold
@@ -60,10 +56,14 @@ class Salecontroller extends Controller
             'status'=>'sold'
         ]);
 
+   
         return redirect()->route('cowsales');
-    }
+    
+}else{
+    return redirect()->route('cowsales')->with('message','more than pay amount tk not accepted' );
 
-
+}
+}
     public function cowsale_delete($id)
     {
         // dd($id);
@@ -77,7 +77,8 @@ class Salecontroller extends Controller
         $cow_sales = Addcow::all();
         $sale=Cow_sale::find($id);
          $categories=Cow_sale::all();
-          return view('backend.layouts.cowsale.edit-cowsale',compact('categories','sale','cow_sales'));
+         $customer = Customer::all();
+          return view('backend.layouts.cowsale.edit-cowsale',compact('categories','sale','cow_sales','customer'));
     }
     
     public function cowsale_update(Request $store, $id)
@@ -86,11 +87,9 @@ class Salecontroller extends Controller
      $sale=Cow_sale::find($id);
         $sale->update([
             //formname=>$variablename->(bladefile)name
-            'Invoice_no'=>$store->Invoice_no,
+            
         'cow_number'=>$store->cow_number,
-        'cus_name'=>$store->cus_name,
-        'email'=>$store->email,
-        'cus_mobile'=>$store->cus_mobile,
+        'customer_id'=>$store->customer_id,
         'amount'=>$store->amount,
         'date'=>$store->date,
         'remarks'=>$store->remarks
@@ -112,40 +111,45 @@ class Salecontroller extends Controller
 
            //$db name= modelname::paginate(number);
          $milk_sales = Milk_sale::paginate(6);
+        $invoice=Customer::all();
 
-
-        return view('backend.layouts.milksale.milksale',compact('milk_sales'));
+        return view('backend.layouts.milksale.milksale',compact('milk_sales','invoice'));
     }
     public function addmilksale()
     {
 
         $milk_sales = Milk_collection::all();
-
-        return view('backend.layouts.milksale.addmilksale',compact('milk_sales'));
+        $customer = Customer::all();
+        return view('backend.layouts.milksale.addmilksale',compact('milk_sales','customer'));
     }
 
     public function addmilksalestore(Request $store)
     {
         //dd($store->all());
-
-
-        Milk_sale::create([
         
-         'cutomer_name'=>$store->cutomer_name,
-         'date'=>$store->date,
-         'liter'=>$store->liter,
-         'price_perliter'=>$store->price_perliter
+        if($store->pay_amount > $store->paidamount){
+            Milk_sale::create([
+        
+                'customer_id'=>$store->customer_id,
+             
+             'paidamount'=>$store->paidamount,
+             'liter'=>$store->liter,
+             'price_perliter'=>$store->price_perliter,
+             'pay_amount'=>$store->pay_amount,
+             'date'=>$store->date
+            ]);
+    
+            Milkstock::create([
+                'stock_out'=>$store->liter,
+                'stock_in'=>0
+            ]);
+            return redirect()->route('milksales');
+        }else{
+            return redirect()->route('milksales')->with('message','more than pay amount tk not accepted' );
+        
+        }
 
-        ]);
-
-        Milkstock::create([
-            'stock_out'=>$store->liter,
-            'stock_in'=>0
-        ]);
        
- 
-       
-        return redirect()->route('milksales');
     }
 
     public function milksale_delete($id)
@@ -160,7 +164,8 @@ class Salecontroller extends Controller
         
         $item=Milk_sale::find($id);
          $categories=Milk_sale::all();
-          return view('backend.layouts.milksale.edit-milksale',compact('categories','item'));
+         $customer = Customer::all();
+          return view('backend.layouts.milksale.edit-milksale',compact('categories','item','customer'));
     }
     
     public function milksale_update(Request $store, $id)
@@ -169,8 +174,9 @@ class Salecontroller extends Controller
      $item=Milk_sale::find($id);
         $item->update([
             //formname=>$variablename->(bladefile)name
-            'cutomer_name'=>$store->cutomer_name,
-            'date'=>$store->date,
+            'customer_id'=>$store->customer_id,
+           
+            'pay_amount'=>$store->pay_amount,
             'liter'=>$store->liter,
             'price_perliter'=>$store->price_perliter
        ]);

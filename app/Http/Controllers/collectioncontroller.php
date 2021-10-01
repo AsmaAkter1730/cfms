@@ -24,6 +24,8 @@ class collectioncontroller extends Controller
     public function addmilkcollection()
     {
         $addmilk=Addcow::where('status','available')->get();
+        $addmilk=Addcow::where('Gender','female')->get();
+
         // dd($addmilk);
         return view('backend.layouts.collection.addmilkcollection',compact('addmilk'));
     }
