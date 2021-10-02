@@ -17,40 +17,39 @@ class Dashcontroller extends Controller
 {
     public function dash()
     {
-       
+
         return view('backend.main');
     }
 
     public function dashboard()
     {
-        $cow_count=Addcow::all()->count();
-        $staff=Staff::all()->count();
-        $stock_in=Milkstock::all()->sum('stock_in');
-        $stock=Milkstock::all()->sum('stock_out');
-        $cow_sale=Cow_sale::all()->count();
-        $cowsale=Cow_sale::all()->sum('amount');
-        $milksale=Milk_sale::all()->sum('pay_amount');
-        $customer=Customer::all()->count();
+        $cow_count = Addcow::all()->count();
+        $staff = Staff::all()->count();
+        $stock_in = Milkstock::all()->sum('stock_in');
+        $stock = Milkstock::all()->sum('stock_out');
+        $cow_sale = Cow_sale::all()->count();
+        $cowsale = Cow_sale::all()->sum('amount');
+        $milksale = Milk_sale::all()->sum('pay_amount');
+        $customer = Customer::all()->count();
 
 
 
-        $tasks=Todolist::paginate(5);
-        return view('backend.layouts.dashboard.dashboard', compact('tasks','staff','cow_count','cow_sale','stock','stock_in','cowsale','milksale','customer'));
+        $tasks = Todolist::paginate(5);
+        return view('backend.layouts.dashboard.dashboard', compact('tasks', 'staff', 'cow_count', 'cow_sale', 'stock', 'stock_in', 'cowsale', 'milksale', 'customer'));
     }
-   
+
     public function addtask(Request $tasks)
     {
         Todolist::create([
-            'tasks'=>$tasks->task
+            'tasks' => $tasks->task
         ]);
-         return redirect()->back();
+        return redirect()->back();
     }
-   
+
     public function delete($id)
     {
         // dd($id);
-      Todolist::destroy($id);
-       return redirect()->back()->with('message','task deleted successfully');
+        Todolist::destroy($id);
+        return redirect()->back()->with('message', 'task deleted successfully');
     }
-
 }

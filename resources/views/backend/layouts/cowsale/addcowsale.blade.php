@@ -73,7 +73,7 @@
             </div>
             <div class="col-md-6">
               <label for="">Enter Amount</label>
-              <input name="paidamount" type="number" class="form-control">
+              <input required name="paidamount" type="number" class="form-control">
             </div>
             <div class="col-md-6">
               <label for="inputEmail4" class="form-label">Date</label>

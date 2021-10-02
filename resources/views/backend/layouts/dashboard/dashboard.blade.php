@@ -106,7 +106,7 @@
             </div>
         </div>
     </div>
-    
+
 </div>
 
 
@@ -119,9 +119,9 @@
 
 
 
-    <!--to do list -->
+<!--to do list -->
 
-    <!--<div class="x_panel">
+<!--<div class="x_panel">
     <div class="x_title">
         <h2>To Do List </h2>
 
@@ -212,4 +212,4 @@
 </div>
 -->
 
-    @endsection
+@endsection

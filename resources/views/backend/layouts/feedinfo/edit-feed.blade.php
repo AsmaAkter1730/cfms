@@ -37,8 +37,7 @@
 
 
                 <div class="container p-5">
-                    <form class="row g-3 d-flex justify-content-center p-5 bg-light shadow border"
-                        action="{{route('feeds.update',$item->id)}}" method="post">
+                    <form class="row g-3 d-flex justify-content-center p-5 bg-light shadow border" action="{{route('feeds.update',$item->id)}}" method="post">
 
                         @csrf
                         @method('put')
@@ -53,7 +52,7 @@
                             </select>
                         </div>
 
-                       
+
 
                         <div class="col-md-6">
                             <label for="inputEmail4" class="form-label">Date</label>
@@ -64,9 +63,9 @@
                         <div class="col-md-6">
                             <label for="inputEmail4" class="form-label">Feed_item</label>
                             <select class="form-control" name="Feed_item" placeholder="Feed_item">
-                             @foreach($feed_monitoring as $add)
-                               <option value="{{$add->id}}"> {{$add->Feed_item}}</option>
-                             @endforeach
+                                @foreach($feed_monitoring as $add)
+                                <option value="{{$add->id}}"> {{$add->Feed_item}}</option>
+                                @endforeach
                             </select>
                         </div>
                         <div class="col-md-6">
@@ -86,7 +85,7 @@
 
                         <div class="col-md-6">
                             <label for="appt" class="form-label">Feed Time</label>
-                            <input value="{{$item->Feed_time}}"  type="time" class="form-control" name="Feed_time" placeholder="Feed time">
+                            <input value="{{$item->Feed_time}}" type="time" class="form-control" name="Feed_time" placeholder="Feed time">
                         </div>
                 </div>
 

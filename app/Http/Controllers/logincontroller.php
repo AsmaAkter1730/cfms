@@ -18,18 +18,16 @@ class logincontroller extends Controller
             'email' => 'required|email',
             'password' => 'required|min:6'
         ]);
-   // dd($request->all());
+        // dd($request->all());
         //2 token except and only
 
-        $credentials=$request->except('_token');
-           //dd($credentials);
-        if(Auth::attempt($credentials))
-        { 
+        $credentials = $request->except('_token');
+        //dd($credentials);
+        if (Auth::attempt($credentials)) {
             //user logged in
             return redirect()->route('dashboards');
-           
         }
-            return redirect()->back()->with('message','invalid user info.');
+        return redirect()->back()->with('message', 'invalid user info.');
     }
 
     public function logout()
@@ -37,8 +35,4 @@ class logincontroller extends Controller
         Auth::logout();
         return redirect()->route('logins');
     }
- 
-       
-    
-
 }

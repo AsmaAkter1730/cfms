@@ -51,40 +51,40 @@
 
 
         <div class="col-xs-12 col-sm-12 col-md-12 text-left bg-light border p-3">
-        <table class="table">
-            <thead class="thead-light">
-                <tr>
+            <table class="table">
+                <thead class="thead-light">
+                    <tr>
 
 
-                    <th style="width:10%;" scope="col">Sale_item </th>
-                    <th style="width:15%;" scope="col">Total Amount</th>
+                        <th style="width:10%;" scope="col">Sale_item </th>
+                        <th style="width:15%;" scope="col">Total Amount</th>
 
-                    <th style="width:15%;" scope="col">paid Amount</th>
-                    <th style="width:15%;" scope="col">due Amount</th>
-                    <th style="width:15%;" scope="col">Date</th>
+                        <th style="width:15%;" scope="col">paid Amount</th>
+                        <th style="width:15%;" scope="col">due Amount</th>
+                        <th style="width:15%;" scope="col">Date</th>
 
-                </tr>
-            </thead>
+                    </tr>
+                </thead>
 
-            <tbody>
-                @php
-                $Due_amount=$invoice->pay_amount-$invoice->paidamount;
-                @endphp
+                <tbody>
+                    @php
+                    $Due_amount=$invoice->pay_amount-$invoice->paidamount;
+                    @endphp
 
 
-                <tr>
+                    <tr>
 
-                    <td>Milk</td>
-                    <td>{{$invoice->pay_amount}}</td>
-                    <td>{{$invoice->paidamount}}</td>
-                    <td>{{$Due_amount}}</td>
-                    <td>{{$invoice->date}}</td>
+                        <td>Milk</td>
+                        <td>{{$invoice->pay_amount}}</td>
+                        <td>{{$invoice->paidamount}}</td>
+                        <td>{{$Due_amount}}</td>
+                        <td>{{$invoice->date}}</td>
 
-                </tr>
+                    </tr>
 
-            </tbody>
+                </tbody>
 
-        </table>
+            </table>
 
         </div>
         <div class="col-xs-6 col-sm-12 col-md-12 bg-light  border p-3">

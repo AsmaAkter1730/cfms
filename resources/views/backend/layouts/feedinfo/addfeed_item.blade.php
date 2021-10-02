@@ -32,8 +32,7 @@
         <div class="">
             <ul class="to_do">
                 <div class="container p-5">
-                    <form class="row g-3 d-flex justify-content-center p-5 bg-light shadow border"
-                        action="{{route('addfeed_itemstores')}}" method="post">
+                    <form class="row g-3 d-flex justify-content-center p-5 bg-light shadow border" action="{{route('addfeed_itemstores')}}" method="post">
                         @csrf
                         <div class="col-md-6">
                             <label for="inputEmail4" class="form-label">Feed item</label>
@@ -57,9 +56,9 @@
                         </div>
                         <div class="col-md-6">
                             <label for="inputEmail4" class="form-label">Status</label>
-                            <input type="text" class="form-control" id="inputEmail4" name="status"placeholder="status">
+                            <input type="text" class="form-control" id="inputEmail4" name="status" placeholder="status">
                         </div>
-                        
+
                         <div class="col-12">
                             <button type="submit" class="btn btn-primary">Submit</button>
                             <button class="btn btn-primary">Cancel</button>

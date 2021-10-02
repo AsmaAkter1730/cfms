@@ -57,12 +57,12 @@
 
             <div class="col-md-6">
               <label for="inputEmail4" class="form-label">Litre</label>
-              <input value="0" type="text" class="form-control" id="litre" name="liter" onkeyup="myFunction()" placeholder="liter">
+              <input required value="0" type="text" class="form-control" id="litre" name="liter" onkeyup="myFunction()" placeholder="liter">
             </div>
 
             <div class="col-md-6">
               <label for="inputEmail4" class="form-label">Price/Litre</label>
-              <input value="0" type="text" class="form-control" id="price" name="price_perliter" onkeyup="myFunction()" placeholder="price per liter">
+              <input required value="0" type="text" class="form-control" id="price" name="price_perliter" onkeyup="myFunction()" placeholder="price per liter">
             </div>
 
             <div class="col-md-6">
@@ -71,7 +71,7 @@
             </div>
             <div class="col-md-6">
               <label for="">Enter Amount</label>
-              <input name="paidamount" type="number" class="form-control">
+              <input required name="paidamount" type="number" class="form-control">
             </div>
 
             <div class="col-md-6">
@@ -86,7 +86,7 @@
           <button type="submit" class="btn btn-primary">Submit</button>
           <button class="btn btn-primary">Cancel</button>
         </div>
-        </form>v>
+        </form>
         </form>
 
     </div>

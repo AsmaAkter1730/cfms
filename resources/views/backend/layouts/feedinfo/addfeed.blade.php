@@ -55,8 +55,8 @@
                        
 
                         <div class="col-md-6">
-                            <label for="inputEmail4" class="form-label">Date</label>
-                            <input type="date" class="form-control" id="inputEmail4" name="date">
+                            <label  for="inputEmail4" class="form-label">Date</label>
+                            <input required type="date" class="form-control" id="inputEmail4" name="date">
                         </div>
 
 
@@ -79,13 +79,13 @@
 
                         <div class="col-md-6">
                             <label for="inputEmail4" class="form-label">Quantity</label>
-                            <input type="number" class="form-control" name="Quantity" placeholder="Quantity">
+                            <input required type="number" class="form-control" name="Quantity" placeholder="Quantity">
                         </div>
 
 
                         <div class="col-md-6">
                             <label for="appt" class="form-label">Feed Time</label>
-                            <input type="time" class="form-control" name="Feed_time" placeholder="Feed time">
+                            <input required type="time" class="form-control" name="Feed_time" placeholder="Feed time">
                         </div>
                 </div>
 

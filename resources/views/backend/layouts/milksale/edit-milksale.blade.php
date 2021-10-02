@@ -46,7 +46,7 @@
 
             <div class="col-md-6">
               <label class="form-label">Customer Name</label>
-              <select class="form-control"  name="customer_id" id="name" placeholder="customer_id">
+              <select class="form-control" name="customer_id" id="name" placeholder="customer_id">
 
                 @foreach ($customer as $data)
                 <option value="{{$data->id}}"> {{ $data->email}}</option>
