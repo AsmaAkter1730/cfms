@@ -61,9 +61,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 						<ul class="nav navbar-nav link-effect-7" id="link-effect-7">
 
 
-							<li><a href="{{route('logins')}}" data-hover="Login">Login</a></li>
-							<li><a href="#Services" data-hover="Services">Services</a></li>
-							<li><a href="#gallery" data-hover="Gallery">Gallery</a></li>
+							<li><a href="{{route('logins')}}" data-hover="Admin Login"> Admin Login</a></li>
+							
 
 						</ul>
 					</nav>
@@ -98,36 +97,33 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 		</div>
 	</div>
 	<!-- //banner-bottom -->
-	<!-- services -->
+
+
+
+	<!-- services 
 	<div class="services" id='Services'>
 		<h3 class="head">Our Services </h3>
 		<br>
 		<div class="container">
 			<div class="col-md-4 agileits_service_grid">
-				<div class="agileits_service_grid1">
-					<span></span>
-				</div>
+			
 				<h3>Milk</h3>
 				<p>Milk protein is of high nutritional value because it contains all the essential amino acids.</p>
 			</div>
 			<div class="col-md-4 agileits_service_grid">
-				<div class="agileits_service_grid2">
-					<span></span>
-				</div>
+				
 				<h3>Feeding Plan</h3>
 				<p>A guideline is to feed 0.5 kg of a 34 to 50% protein concentrates for every 5 kg of milk produced above 20 kg of milk.</p>
 			</div>
 			<div class="col-md-4 agileits_service_grid">
-				<div class="agileits_service_grid3">
-					<span></span>
-				</div>
+				
 				<h3>Dairy Cow</h3>
 				<p>Dairy cows produce milk for around 10 months following the birth of the calf. A typical western dairy cow is usually milked twice per day and produces on average 30 litres (8 gallons) of milk daily</p>
 			</div>
 			<div class="clearfix"> </div>
 		</div>
 	</div>
-	<!-- //services -->
+	 //services -->
 	<!-- gallery -->
 	<div class="gallery" id='gallery'>
 		<h3 class="head"><span class="glyphicon glyphicon-picture" aria-hidden="true"></span>Our Cattle Farm Gallery</h3>
@@ -204,7 +200,12 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 			<script src="js/jzBox.js"></script>
 		</div>
 	</div>
+
 	<!-- //gallery -->
+		<!--
+	                        <li><a href="#Services" data-hover="Services"></a></li>
+							<li><a href="#gallery" data-hover="Gallery"></a></li>
+	 //gallery -->
 
 
 	<!-- footer -->

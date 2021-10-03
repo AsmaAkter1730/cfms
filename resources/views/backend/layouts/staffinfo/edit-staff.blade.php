@@ -68,7 +68,7 @@
             </div>
             <div class="col-6">
               <label for="inputAddress" class="form-label">Address</label>
-              <textarea class="form-control" value="{{$staff->Address}}" type="text" class="form-control" id="inputAddress" name="Address" placeholder="Address"></textarea>
+              <input class="form-control" value="{{$staff->Address}}" type="text" class="form-control" id="inputAddress" name="Address" placeholder="Address">
             </div>
 
         </div>

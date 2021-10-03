@@ -78,12 +78,24 @@ class informationcontroller extends Controller
     public function cow_update(Request $store, $id)
 
     {
+
+        $fileName = '';
+        if ($store->hasFile('image')) {
+
+            // dd(date('Ymdhms').'.'.$store->file('image'))->getClientOriginalExtension();
+            //dd(date('Ymdhms'));
+
+            $file = $store->file('image');
+            //generate file name here
+            $fileName = date('Ymdhms') . '.' . $file->getClientOriginalExtension();
+            $file->storeAs('/uploads', $fileName);
+        }
         $cows = Addcow::find($id);
         $cows->update([
             //formname=>$variablename->(bladefile)name
 
             'cow_number' => $store->cow_number,
-
+            'image' => $fileName,
             'Gender' => $store->Gender,
             'date_of_birth' => $store->date_of_birth,
             'status' => $store->status,
@@ -162,10 +174,22 @@ class informationcontroller extends Controller
     public function staff_update(Request $store, $id)
 
     {
+        $fileName = '';
+        if ($store->hasFile('image')) {
+
+            // dd(date('Ymdhms').'.'.$store->file('image'))->getClientOriginalExtension();
+            //dd(date('Ymdhms'));
+
+            $file = $store->file('image');
+            //generate file name here
+            $fileName = date('Ymdhms') . '.' . $file->getClientOriginalExtension();
+            $file->storeAs('/uploads', $fileName);
+        }
         $staff = Staff::find($id);
         $staff->update([
             //formname=>$variablename->(bladefile)name
             'staff_name' => $store->staff_name,
+            'image' => $fileName,
             'email' => $store->email,
             'Mobile' => $store->Mobile,
             'Designation' => $store->Designation,

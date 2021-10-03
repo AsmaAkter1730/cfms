@@ -53,6 +53,7 @@
 
                 @foreach($addcows as $add)
                 <option value="{{$add->id}}"> {{$add->cow_type}}</option>
+               
                 @endforeach
               </select>
             </div>

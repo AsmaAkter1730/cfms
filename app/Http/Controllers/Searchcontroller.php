@@ -26,10 +26,10 @@ class Searchcontroller extends Controller
 
    public function view_cowsale($id)
    {
-      $cowsale = Cow_sale::find($id);
+      
       $invoice = Cow_sale::find($id);
 
-      return view('backend.layouts.cowsale.cowsale-view', compact('id', 'cowsale', 'invoice'));
+      return view('backend.layouts.cowsale.cowsale-view', compact('id',  'invoice'));
    }
 
    public function view_milksale($id)
